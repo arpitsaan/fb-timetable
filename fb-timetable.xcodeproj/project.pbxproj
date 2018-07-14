@@ -1,0 +1,582 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E882B83D20FA99710067D9C0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E882B83C20FA99710067D9C0 /* AppDelegate.m */; };
+		E882B84020FA99710067D9C0 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E882B83F20FA99710067D9C0 /* ViewController.m */; };
+		E882B84320FA99710067D9C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E882B84120FA99710067D9C0 /* Main.storyboard */; };
+		E882B84520FA99720067D9C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E882B84420FA99720067D9C0 /* Assets.xcassets */; };
+		E882B84820FA99720067D9C0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E882B84620FA99720067D9C0 /* LaunchScreen.storyboard */; };
+		E882B84B20FA99720067D9C0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E882B84A20FA99720067D9C0 /* main.m */; };
+		E882B85520FA99720067D9C0 /* fb_timetableTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E882B85420FA99720067D9C0 /* fb_timetableTests.m */; };
+		E882B86020FA99720067D9C0 /* fb_timetableUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E882B85F20FA99720067D9C0 /* fb_timetableUITests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E882B85120FA99720067D9C0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E882B83020FA99710067D9C0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E882B83720FA99710067D9C0;
+			remoteInfo = "fb-timetable";
+		};
+		E882B85C20FA99720067D9C0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E882B83020FA99710067D9C0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E882B83720FA99710067D9C0;
+			remoteInfo = "fb-timetable";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		E882B83820FA99710067D9C0 /* fb-timetable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "fb-timetable.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E882B83B20FA99710067D9C0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		E882B83C20FA99710067D9C0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		E882B83E20FA99710067D9C0 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		E882B83F20FA99710067D9C0 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		E882B84220FA99710067D9C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E882B84420FA99720067D9C0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E882B84720FA99720067D9C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E882B84920FA99720067D9C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E882B84A20FA99720067D9C0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E882B85020FA99720067D9C0 /* fb-timetableTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "fb-timetableTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E882B85420FA99720067D9C0 /* fb_timetableTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = fb_timetableTests.m; sourceTree = "<group>"; };
+		E882B85620FA99720067D9C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E882B85B20FA99720067D9C0 /* fb-timetableUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "fb-timetableUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E882B85F20FA99720067D9C0 /* fb_timetableUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = fb_timetableUITests.m; sourceTree = "<group>"; };
+		E882B86120FA99720067D9C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E882B83520FA99710067D9C0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E882B84D20FA99720067D9C0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E882B85820FA99720067D9C0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E882B82F20FA99710067D9C0 = {
+			isa = PBXGroup;
+			children = (
+				E882B83A20FA99710067D9C0 /* fb-timetable */,
+				E882B85320FA99720067D9C0 /* fb-timetableTests */,
+				E882B85E20FA99720067D9C0 /* fb-timetableUITests */,
+				E882B83920FA99710067D9C0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E882B83920FA99710067D9C0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E882B83820FA99710067D9C0 /* fb-timetable.app */,
+				E882B85020FA99720067D9C0 /* fb-timetableTests.xctest */,
+				E882B85B20FA99720067D9C0 /* fb-timetableUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E882B83A20FA99710067D9C0 /* fb-timetable */ = {
+			isa = PBXGroup;
+			children = (
+				E882B83B20FA99710067D9C0 /* AppDelegate.h */,
+				E882B83C20FA99710067D9C0 /* AppDelegate.m */,
+				E882B83E20FA99710067D9C0 /* ViewController.h */,
+				E882B83F20FA99710067D9C0 /* ViewController.m */,
+				E882B84120FA99710067D9C0 /* Main.storyboard */,
+				E882B84420FA99720067D9C0 /* Assets.xcassets */,
+				E882B84620FA99720067D9C0 /* LaunchScreen.storyboard */,
+				E882B84920FA99720067D9C0 /* Info.plist */,
+				E882B84A20FA99720067D9C0 /* main.m */,
+			);
+			path = "fb-timetable";
+			sourceTree = "<group>";
+		};
+		E882B85320FA99720067D9C0 /* fb-timetableTests */ = {
+			isa = PBXGroup;
+			children = (
+				E882B85420FA99720067D9C0 /* fb_timetableTests.m */,
+				E882B85620FA99720067D9C0 /* Info.plist */,
+			);
+			path = "fb-timetableTests";
+			sourceTree = "<group>";
+		};
+		E882B85E20FA99720067D9C0 /* fb-timetableUITests */ = {
+			isa = PBXGroup;
+			children = (
+				E882B85F20FA99720067D9C0 /* fb_timetableUITests.m */,
+				E882B86120FA99720067D9C0 /* Info.plist */,
+			);
+			path = "fb-timetableUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E882B83720FA99710067D9C0 /* fb-timetable */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E882B86420FA99720067D9C0 /* Build configuration list for PBXNativeTarget "fb-timetable" */;
+			buildPhases = (
+				E882B83420FA99710067D9C0 /* Sources */,
+				E882B83520FA99710067D9C0 /* Frameworks */,
+				E882B83620FA99710067D9C0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "fb-timetable";
+			productName = "fb-timetable";
+			productReference = E882B83820FA99710067D9C0 /* fb-timetable.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E882B84F20FA99720067D9C0 /* fb-timetableTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E882B86720FA99720067D9C0 /* Build configuration list for PBXNativeTarget "fb-timetableTests" */;
+			buildPhases = (
+				E882B84C20FA99720067D9C0 /* Sources */,
+				E882B84D20FA99720067D9C0 /* Frameworks */,
+				E882B84E20FA99720067D9C0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E882B85220FA99720067D9C0 /* PBXTargetDependency */,
+			);
+			name = "fb-timetableTests";
+			productName = "fb-timetableTests";
+			productReference = E882B85020FA99720067D9C0 /* fb-timetableTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		E882B85A20FA99720067D9C0 /* fb-timetableUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E882B86A20FA99720067D9C0 /* Build configuration list for PBXNativeTarget "fb-timetableUITests" */;
+			buildPhases = (
+				E882B85720FA99720067D9C0 /* Sources */,
+				E882B85820FA99720067D9C0 /* Frameworks */,
+				E882B85920FA99720067D9C0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E882B85D20FA99720067D9C0 /* PBXTargetDependency */,
+			);
+			name = "fb-timetableUITests";
+			productName = "fb-timetableUITests";
+			productReference = E882B85B20FA99720067D9C0 /* fb-timetableUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E882B83020FA99710067D9C0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = acyooman;
+				TargetAttributes = {
+					E882B83720FA99710067D9C0 = {
+						CreatedOnToolsVersion = 9.4;
+					};
+					E882B84F20FA99720067D9C0 = {
+						CreatedOnToolsVersion = 9.4;
+						TestTargetID = E882B83720FA99710067D9C0;
+					};
+					E882B85A20FA99720067D9C0 = {
+						CreatedOnToolsVersion = 9.4;
+						TestTargetID = E882B83720FA99710067D9C0;
+					};
+				};
+			};
+			buildConfigurationList = E882B83320FA99710067D9C0 /* Build configuration list for PBXProject "fb-timetable" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E882B82F20FA99710067D9C0;
+			productRefGroup = E882B83920FA99710067D9C0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E882B83720FA99710067D9C0 /* fb-timetable */,
+				E882B84F20FA99720067D9C0 /* fb-timetableTests */,
+				E882B85A20FA99720067D9C0 /* fb-timetableUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E882B83620FA99710067D9C0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E882B84820FA99720067D9C0 /* LaunchScreen.storyboard in Resources */,
+				E882B84520FA99720067D9C0 /* Assets.xcassets in Resources */,
+				E882B84320FA99710067D9C0 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E882B84E20FA99720067D9C0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E882B85920FA99720067D9C0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E882B83420FA99710067D9C0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E882B84020FA99710067D9C0 /* ViewController.m in Sources */,
+				E882B84B20FA99720067D9C0 /* main.m in Sources */,
+				E882B83D20FA99710067D9C0 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E882B84C20FA99720067D9C0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E882B85520FA99720067D9C0 /* fb_timetableTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E882B85720FA99720067D9C0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E882B86020FA99720067D9C0 /* fb_timetableUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E882B85220FA99720067D9C0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E882B83720FA99710067D9C0 /* fb-timetable */;
+			targetProxy = E882B85120FA99720067D9C0 /* PBXContainerItemProxy */;
+		};
+		E882B85D20FA99720067D9C0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E882B83720FA99710067D9C0 /* fb-timetable */;
+			targetProxy = E882B85C20FA99720067D9C0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E882B84120FA99710067D9C0 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E882B84220FA99710067D9C0 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		E882B84620FA99720067D9C0 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E882B84720FA99720067D9C0 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E882B86220FA99720067D9C0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		E882B86320FA99720067D9C0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E882B86520FA99720067D9C0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L2VF9Y9HZL;
+				INFOPLIST_FILE = "fb-timetable/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.acyooman.fb-timetable";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E882B86620FA99720067D9C0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L2VF9Y9HZL;
+				INFOPLIST_FILE = "fb-timetable/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.acyooman.fb-timetable";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		E882B86820FA99720067D9C0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L2VF9Y9HZL;
+				INFOPLIST_FILE = "fb-timetableTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.acyooman.fb-timetableTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/fb-timetable.app/fb-timetable";
+			};
+			name = Debug;
+		};
+		E882B86920FA99720067D9C0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L2VF9Y9HZL;
+				INFOPLIST_FILE = "fb-timetableTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.acyooman.fb-timetableTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/fb-timetable.app/fb-timetable";
+			};
+			name = Release;
+		};
+		E882B86B20FA99720067D9C0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L2VF9Y9HZL;
+				INFOPLIST_FILE = "fb-timetableUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.acyooman.fb-timetableUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "fb-timetable";
+			};
+			name = Debug;
+		};
+		E882B86C20FA99720067D9C0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L2VF9Y9HZL;
+				INFOPLIST_FILE = "fb-timetableUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.acyooman.fb-timetableUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "fb-timetable";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E882B83320FA99710067D9C0 /* Build configuration list for PBXProject "fb-timetable" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E882B86220FA99720067D9C0 /* Debug */,
+				E882B86320FA99720067D9C0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E882B86420FA99720067D9C0 /* Build configuration list for PBXNativeTarget "fb-timetable" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E882B86520FA99720067D9C0 /* Debug */,
+				E882B86620FA99720067D9C0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E882B86720FA99720067D9C0 /* Build configuration list for PBXNativeTarget "fb-timetableTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E882B86820FA99720067D9C0 /* Debug */,
+				E882B86920FA99720067D9C0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E882B86A20FA99720067D9C0 /* Build configuration list for PBXNativeTarget "fb-timetableUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E882B86B20FA99720067D9C0 /* Debug */,
+				E882B86C20FA99720067D9C0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E882B83020FA99710067D9C0 /* Project object */;
+}
