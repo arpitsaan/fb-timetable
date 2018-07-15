@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC84AD93533D4319982E7F35 /* libPods-fb-timetable.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA8B78969EDA022ABC9F4554 /* libPods-fb-timetable.a */; };
 		E882B83D20FA99710067D9C0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E882B83C20FA99710067D9C0 /* AppDelegate.m */; };
 		E882B84020FA99710067D9C0 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E882B83F20FA99710067D9C0 /* ViewController.m */; };
 		E882B84320FA99710067D9C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E882B84120FA99710067D9C0 /* Main.storyboard */; };
@@ -35,6 +36,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		888FC5B14AC0AF1F7D7A3E56 /* Pods-fb-timetable.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fb-timetable.debug.xcconfig"; path = "Pods/Target Support Files/Pods-fb-timetable/Pods-fb-timetable.debug.xcconfig"; sourceTree = "<group>"; };
+		A82012B484F8EAD4B765F2CE /* Pods-fb-timetable.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fb-timetable.release.xcconfig"; path = "Pods/Target Support Files/Pods-fb-timetable/Pods-fb-timetable.release.xcconfig"; sourceTree = "<group>"; };
+		DA8B78969EDA022ABC9F4554 /* libPods-fb-timetable.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-fb-timetable.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E882B83820FA99710067D9C0 /* fb-timetable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "fb-timetable.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E882B83B20FA99710067D9C0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E882B83C20FA99710067D9C0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -58,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC84AD93533D4319982E7F35 /* libPods-fb-timetable.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +83,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		471618C6EDBB64E48D64D7C2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				888FC5B14AC0AF1F7D7A3E56 /* Pods-fb-timetable.debug.xcconfig */,
+				A82012B484F8EAD4B765F2CE /* Pods-fb-timetable.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		72053A97C5EF7213FE10DE35 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DA8B78969EDA022ABC9F4554 /* libPods-fb-timetable.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E882B82F20FA99710067D9C0 = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +107,8 @@
 				E882B85320FA99720067D9C0 /* fb-timetableTests */,
 				E882B85E20FA99720067D9C0 /* fb-timetableUITests */,
 				E882B83920FA99710067D9C0 /* Products */,
+				471618C6EDBB64E48D64D7C2 /* Pods */,
+				72053A97C5EF7213FE10DE35 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -139,6 +163,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E882B86420FA99720067D9C0 /* Build configuration list for PBXNativeTarget "fb-timetable" */;
 			buildPhases = (
+				6953DA7064D2892572F0D74B /* [CP] Check Pods Manifest.lock */,
 				E882B83420FA99710067D9C0 /* Sources */,
 				E882B83520FA99710067D9C0 /* Frameworks */,
 				E882B83620FA99710067D9C0 /* Resources */,
@@ -256,6 +281,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6953DA7064D2892572F0D74B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-fb-timetable-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E882B83420FA99710067D9C0 /* Sources */ = {
@@ -431,11 +477,13 @@
 		};
 		E882B86520FA99720067D9C0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 888FC5B14AC0AF1F7D7A3E56 /* Pods-fb-timetable.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L2VF9Y9HZL;
 				INFOPLIST_FILE = "fb-timetable/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -448,11 +496,13 @@
 		};
 		E882B86620FA99720067D9C0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A82012B484F8EAD4B765F2CE /* Pods-fb-timetable.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L2VF9Y9HZL;
 				INFOPLIST_FILE = "fb-timetable/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

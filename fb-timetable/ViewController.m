@@ -2,13 +2,14 @@
 //  ViewController.m
 //  fb-timetable
 //
-//  Created by zom on 15/07/18.
+//  Created by Arpit Agarwal on 15/07/18.
 //  Copyright © 2018 acyooman. All rights reserved.
 //
 
 #import "ViewController.h"
 
 @interface ViewController ()
+@property(nonatomic, strong) UITableView *tableView;
 
 @end
 
@@ -16,13 +17,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+}
+
+- (void)createViews {
+    self.tableView = [[UITableView alloc] init];
+    [self.view addSubview:self.tableView];
 }
 
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 
