@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "MainViewController.h"
+#import "FBAPIInitializer.h"
 
 @interface AppDelegate ()
 
@@ -16,8 +18,26 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    //Initialize the API Connection
+    [self setupAPI];
+    
+    //Initialize and start the UI
+    [self startAppUI];
+    
     return YES;
+}
+
+- (void)setupAPI {
+    [FBAPIInitializer initializeApi];
+}
+
+- (void)startAppUI {
+    MainViewController *mainVC = [[MainViewController alloc] init];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:mainVC];
+    
+    self.window = [[UIWindow alloc] init];
+    [self.window setRootViewController:navController];
+    [self.window makeKeyAndVisible];
 }
 
 

@@ -8,9 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		AC84AD93533D4319982E7F35 /* libPods-fb-timetable.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA8B78969EDA022ABC9F4554 /* libPods-fb-timetable.a */; };
+		E862D6C720FB545600CEA180 /* FBModelObject.m in Sources */ = {isa = PBXBuildFile; fileRef = E862D6C620FB545600CEA180 /* FBModelObject.m */; };
+		E862D6CC20FB55FF00CEA180 /* FBApiManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E862D6CB20FB55FF00CEA180 /* FBApiManager.m */; };
+		E862D6CF20FB57A800CEA180 /* FBApiSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = E862D6CE20FB57A800CEA180 /* FBApiSettings.m */; };
+		E862D6D220FB5B6300CEA180 /* FBAPIInitializer.m in Sources */ = {isa = PBXBuildFile; fileRef = E862D6D120FB5B6300CEA180 /* FBAPIInitializer.m */; };
+		E862D6D520FB5F3600CEA180 /* FBRouteTimetable.m in Sources */ = {isa = PBXBuildFile; fileRef = E862D6D420FB5F3600CEA180 /* FBRouteTimetable.m */; };
+		E862D6D920FB782B00CEA180 /* FBStation.m in Sources */ = {isa = PBXBuildFile; fileRef = E862D6D820FB782B00CEA180 /* FBStation.m */; };
+		E862D6DC20FB795100CEA180 /* FBCoordinate.m in Sources */ = {isa = PBXBuildFile; fileRef = E862D6DB20FB795100CEA180 /* FBCoordinate.m */; };
 		E882B83D20FA99710067D9C0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E882B83C20FA99710067D9C0 /* AppDelegate.m */; };
-		E882B84020FA99710067D9C0 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E882B83F20FA99710067D9C0 /* ViewController.m */; };
-		E882B84320FA99710067D9C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E882B84120FA99710067D9C0 /* Main.storyboard */; };
+		E882B84020FA99710067D9C0 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E882B83F20FA99710067D9C0 /* MainViewController.m */; };
 		E882B84520FA99720067D9C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E882B84420FA99720067D9C0 /* Assets.xcassets */; };
 		E882B84820FA99720067D9C0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E882B84620FA99720067D9C0 /* LaunchScreen.storyboard */; };
 		E882B84B20FA99720067D9C0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E882B84A20FA99720067D9C0 /* main.m */; };
@@ -39,12 +45,25 @@
 		888FC5B14AC0AF1F7D7A3E56 /* Pods-fb-timetable.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fb-timetable.debug.xcconfig"; path = "Pods/Target Support Files/Pods-fb-timetable/Pods-fb-timetable.debug.xcconfig"; sourceTree = "<group>"; };
 		A82012B484F8EAD4B765F2CE /* Pods-fb-timetable.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fb-timetable.release.xcconfig"; path = "Pods/Target Support Files/Pods-fb-timetable/Pods-fb-timetable.release.xcconfig"; sourceTree = "<group>"; };
 		DA8B78969EDA022ABC9F4554 /* libPods-fb-timetable.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-fb-timetable.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E862D6C520FB545600CEA180 /* FBModelObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FBModelObject.h; sourceTree = "<group>"; };
+		E862D6C620FB545600CEA180 /* FBModelObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FBModelObject.m; sourceTree = "<group>"; };
+		E862D6CA20FB55FF00CEA180 /* FBApiManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FBApiManager.h; sourceTree = "<group>"; };
+		E862D6CB20FB55FF00CEA180 /* FBApiManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FBApiManager.m; sourceTree = "<group>"; };
+		E862D6CD20FB57A800CEA180 /* FBApiSettings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FBApiSettings.h; sourceTree = "<group>"; };
+		E862D6CE20FB57A800CEA180 /* FBApiSettings.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FBApiSettings.m; sourceTree = "<group>"; };
+		E862D6D020FB5B6300CEA180 /* FBAPIInitializer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FBAPIInitializer.h; sourceTree = "<group>"; };
+		E862D6D120FB5B6300CEA180 /* FBAPIInitializer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FBAPIInitializer.m; sourceTree = "<group>"; };
+		E862D6D320FB5F3600CEA180 /* FBRouteTimetable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FBRouteTimetable.h; sourceTree = "<group>"; };
+		E862D6D420FB5F3600CEA180 /* FBRouteTimetable.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FBRouteTimetable.m; sourceTree = "<group>"; };
+		E862D6D720FB782B00CEA180 /* FBStation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FBStation.h; sourceTree = "<group>"; };
+		E862D6D820FB782B00CEA180 /* FBStation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FBStation.m; sourceTree = "<group>"; };
+		E862D6DA20FB795100CEA180 /* FBCoordinate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FBCoordinate.h; sourceTree = "<group>"; };
+		E862D6DB20FB795100CEA180 /* FBCoordinate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FBCoordinate.m; sourceTree = "<group>"; };
 		E882B83820FA99710067D9C0 /* fb-timetable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "fb-timetable.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E882B83B20FA99710067D9C0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E882B83C20FA99710067D9C0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		E882B83E20FA99710067D9C0 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		E882B83F20FA99710067D9C0 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		E882B84220FA99710067D9C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E882B83E20FA99710067D9C0 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		E882B83F20FA99710067D9C0 /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		E882B84420FA99720067D9C0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E882B84720FA99720067D9C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E882B84920FA99720067D9C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -100,6 +119,34 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		E862D6B320FB4E6E00CEA180 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				E862D6C520FB545600CEA180 /* FBModelObject.h */,
+				E862D6C620FB545600CEA180 /* FBModelObject.m */,
+				E862D6CA20FB55FF00CEA180 /* FBApiManager.h */,
+				E862D6CB20FB55FF00CEA180 /* FBApiManager.m */,
+				E862D6CD20FB57A800CEA180 /* FBApiSettings.h */,
+				E862D6CE20FB57A800CEA180 /* FBApiSettings.m */,
+				E862D6D020FB5B6300CEA180 /* FBAPIInitializer.h */,
+				E862D6D120FB5B6300CEA180 /* FBAPIInitializer.m */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		E862D6D620FB6DCB00CEA180 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E862D6D320FB5F3600CEA180 /* FBRouteTimetable.h */,
+				E862D6D420FB5F3600CEA180 /* FBRouteTimetable.m */,
+				E862D6D720FB782B00CEA180 /* FBStation.h */,
+				E862D6D820FB782B00CEA180 /* FBStation.m */,
+				E862D6DA20FB795100CEA180 /* FBCoordinate.h */,
+				E862D6DB20FB795100CEA180 /* FBCoordinate.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		E882B82F20FA99710067D9C0 = {
 			isa = PBXGroup;
 			children = (
@@ -125,11 +172,12 @@
 		E882B83A20FA99710067D9C0 /* fb-timetable */ = {
 			isa = PBXGroup;
 			children = (
+				E862D6D620FB6DCB00CEA180 /* Models */,
+				E862D6B320FB4E6E00CEA180 /* API */,
 				E882B83B20FA99710067D9C0 /* AppDelegate.h */,
 				E882B83C20FA99710067D9C0 /* AppDelegate.m */,
-				E882B83E20FA99710067D9C0 /* ViewController.h */,
-				E882B83F20FA99710067D9C0 /* ViewController.m */,
-				E882B84120FA99710067D9C0 /* Main.storyboard */,
+				E882B83E20FA99710067D9C0 /* MainViewController.h */,
+				E882B83F20FA99710067D9C0 /* MainViewController.m */,
 				E882B84420FA99720067D9C0 /* Assets.xcassets */,
 				E882B84620FA99720067D9C0 /* LaunchScreen.storyboard */,
 				E882B84920FA99720067D9C0 /* Info.plist */,
@@ -262,7 +310,6 @@
 			files = (
 				E882B84820FA99720067D9C0 /* LaunchScreen.storyboard in Resources */,
 				E882B84520FA99720067D9C0 /* Assets.xcassets in Resources */,
-				E882B84320FA99710067D9C0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,8 +355,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E882B84020FA99710067D9C0 /* ViewController.m in Sources */,
+				E882B84020FA99710067D9C0 /* MainViewController.m in Sources */,
+				E862D6D920FB782B00CEA180 /* FBStation.m in Sources */,
 				E882B84B20FA99720067D9C0 /* main.m in Sources */,
+				E862D6DC20FB795100CEA180 /* FBCoordinate.m in Sources */,
+				E862D6CC20FB55FF00CEA180 /* FBApiManager.m in Sources */,
+				E862D6D520FB5F3600CEA180 /* FBRouteTimetable.m in Sources */,
+				E862D6CF20FB57A800CEA180 /* FBApiSettings.m in Sources */,
+				E862D6D220FB5B6300CEA180 /* FBAPIInitializer.m in Sources */,
+				E862D6C720FB545600CEA180 /* FBModelObject.m in Sources */,
 				E882B83D20FA99710067D9C0 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -346,14 +400,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		E882B84120FA99710067D9C0 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E882B84220FA99710067D9C0 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		E882B84620FA99720067D9C0 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
