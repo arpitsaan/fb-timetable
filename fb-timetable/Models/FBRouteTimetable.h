@@ -8,6 +8,7 @@
 
 #import "FBModelObject.h"
 #import "FBStation.h"
+#import "FBRouteStop.h"
 
 @protocol FBRouteTimetableDelegate <NSObject>
 - (void)routeTimetableDownloadedSuccessfully;

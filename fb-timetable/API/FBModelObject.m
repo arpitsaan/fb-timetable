@@ -30,11 +30,61 @@
 }
 
 - (NSString *)getStringForKey:(NSString *)key fromDictionary:(NSDictionary *)dictionary withInitialValue:(NSString *)initialValue {
-    return @"";
+    
+    NSString *returnValue = initialValue;
+    @try {
+        returnValue = [dictionary valueForKeyPath:key];
+    }
+    @catch (NSException *exception) {
+        NSLog(@"[Exception] getStringForKey - %@", exception.description);
+    }
+    
+    if (returnValue == nil) {
+        return initialValue;
+    }
+    else if ([returnValue isKindOfClass:[NSNumber class]]) {
+        returnValue = [NSString stringWithFormat:@"%@", returnValue];
+    }
+    
+    if ([returnValue isKindOfClass:[NSString class]] || [returnValue isKindOfClass:[NSNumber class]]) {
+        return returnValue;
+    }
+    else {
+        return initialValue;
+    }
 }
 
 - (NSNumber *)getNumberForKey:(NSString *)key fromDictionary:(NSDictionary *)dictionary withInitialValue:(NSNumber *)initialValue {
-    return @(0);
+    
+    NSNumber *returnValue = initialValue;
+    
+    @try {
+        returnValue = [dictionary valueForKeyPath:key];
+    }
+    @catch (NSException *exception) {
+        NSLog(@"[Exception] getNumberForKey - %@", exception.description);
+    }
+    
+    if (returnValue == nil) {
+        return initialValue;
+    }
+    else if ([returnValue isKindOfClass:[NSString class]]) {
+        NSString *tempString = (NSString *)returnValue;
+        @try {
+            returnValue = [NSDecimalNumber decimalNumberWithString:tempString];
+        }
+        @catch (NSException *exception) {
+            NSLog(@"[Exception] getNumberForKey - %@", exception.description);
+        }
+    }
+
+    
+    if ([returnValue isKindOfClass:[NSString class]] || [returnValue isKindOfClass:[NSNumber class]]) {
+        return returnValue;
+    }
+    else {
+        return initialValue;
+    }
 }
 
 

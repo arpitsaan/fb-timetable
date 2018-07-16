@@ -17,7 +17,7 @@
     
     self.shortAddress = [self getStringForKey:@"address" fromDictionary:responseObject withInitialValue:self.shortAddress];
 
-    self.fullAddress = [self getStringForKey:@"name" fromDictionary:responseObject withInitialValue:self.fullAddress];
+    self.fullAddress = [self getStringForKey:@"full_address" fromDictionary:responseObject withInitialValue:self.fullAddress];
 }
 
 @end

@@ -2,7 +2,7 @@
 //  FBCoordinate.m
 //  fb-timetable
 //
-//  Created by zom on 15/07/18.
+//  Created by Arpit Agarwal on 15/07/18.
 //  Copyright © 2018 acyooman. All rights reserved.
 //
 
