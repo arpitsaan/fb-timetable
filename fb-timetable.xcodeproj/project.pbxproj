@@ -10,7 +10,6 @@
 		AC84AD93533D4319982E7F35 /* libPods-fb-timetable.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA8B78969EDA022ABC9F4554 /* libPods-fb-timetable.a */; };
 		E834328220FD05EF00B86759 /* FBRouteStop.m in Sources */ = {isa = PBXBuildFile; fileRef = E834328120FD05EF00B86759 /* FBRouteStop.m */; };
 		E834328520FD06E600B86759 /* FBDateTime.m in Sources */ = {isa = PBXBuildFile; fileRef = E834328420FD06E600B86759 /* FBDateTime.m */; };
-		E834328920FD1A1600B86759 /* FBTableViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E834328820FD1A1600B86759 /* FBTableViewManager.m */; };
 		E862D6C720FB545600CEA180 /* FBModelObject.m in Sources */ = {isa = PBXBuildFile; fileRef = E862D6C620FB545600CEA180 /* FBModelObject.m */; };
 		E862D6CC20FB55FF00CEA180 /* FBApiManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E862D6CB20FB55FF00CEA180 /* FBApiManager.m */; };
 		E862D6CF20FB57A800CEA180 /* FBApiSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = E862D6CE20FB57A800CEA180 /* FBApiSettings.m */; };
@@ -52,8 +51,6 @@
 		E834328120FD05EF00B86759 /* FBRouteStop.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FBRouteStop.m; sourceTree = "<group>"; };
 		E834328320FD06E600B86759 /* FBDateTime.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FBDateTime.h; sourceTree = "<group>"; };
 		E834328420FD06E600B86759 /* FBDateTime.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FBDateTime.m; sourceTree = "<group>"; };
-		E834328720FD1A1600B86759 /* FBTableViewManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FBTableViewManager.h; sourceTree = "<group>"; };
-		E834328820FD1A1600B86759 /* FBTableViewManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FBTableViewManager.m; sourceTree = "<group>"; };
 		E862D6C520FB545600CEA180 /* FBModelObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FBModelObject.h; sourceTree = "<group>"; };
 		E862D6C620FB545600CEA180 /* FBModelObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FBModelObject.m; sourceTree = "<group>"; };
 		E862D6CA20FB55FF00CEA180 /* FBApiManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FBApiManager.h; sourceTree = "<group>"; };
@@ -128,15 +125,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		E834328620FD19BE00B86759 /* TableView */ = {
-			isa = PBXGroup;
-			children = (
-				E834328720FD1A1600B86759 /* FBTableViewManager.h */,
-				E834328820FD1A1600B86759 /* FBTableViewManager.m */,
-			);
-			path = TableView;
-			sourceTree = "<group>";
-		};
 		E862D6B320FB4E6E00CEA180 /* API */ = {
 			isa = PBXGroup;
 			children = (
@@ -194,7 +182,6 @@
 		E882B83A20FA99710067D9C0 /* fb-timetable */ = {
 			isa = PBXGroup;
 			children = (
-				E834328620FD19BE00B86759 /* TableView */,
 				E862D6D620FB6DCB00CEA180 /* Models */,
 				E862D6B320FB4E6E00CEA180 /* API */,
 				E882B83B20FA99710067D9C0 /* AppDelegate.h */,
@@ -389,7 +376,6 @@
 				E862D6D220FB5B6300CEA180 /* FBAPIInitializer.m in Sources */,
 				E834328220FD05EF00B86759 /* FBRouteStop.m in Sources */,
 				E862D6C720FB545600CEA180 /* FBModelObject.m in Sources */,
-				E834328920FD1A1600B86759 /* FBTableViewManager.m in Sources */,
 				E882B83D20FA99710067D9C0 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

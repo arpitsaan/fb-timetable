@@ -19,8 +19,8 @@
 
 @property(nonatomic, weak) id<FBRouteTimetableDelegate> delegate;
 
-@property(nonatomic, strong) NSArray *departures;
-@property(nonatomic, strong) NSArray *arrivals;
+@property(nonatomic, strong) NSArray<FBRouteStop *> *departures;
+@property(nonatomic, strong) NSArray<FBRouteStop *> *arrivals;
 @property(nonatomic, strong) FBStation *stationInfo;
 
 @property(nonatomic, strong) NSString *status;
