@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "467E21E8841EFE44F5B4351847BF4561"
+               BlueprintIdentifier = "32AAF3F014C451C6466F166FE1DAF92B"
                BlueprintName = "Pods-fb-timetable"
                ReferencedContainer = "container:Pods.xcodeproj"
                BuildableName = "libPods-fb-timetable.a">

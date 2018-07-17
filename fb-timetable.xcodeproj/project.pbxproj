@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AC84AD93533D4319982E7F35 /* libPods-fb-timetable.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA8B78969EDA022ABC9F4554 /* libPods-fb-timetable.a */; };
+		E815253620FDF55900DB4BF4 /* UIView+AutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = E815253520FDF55900DB4BF4 /* UIView+AutoLayout.m */; };
 		E834328220FD05EF00B86759 /* FBRouteStop.m in Sources */ = {isa = PBXBuildFile; fileRef = E834328120FD05EF00B86759 /* FBRouteStop.m */; };
 		E834328520FD06E600B86759 /* FBDateTime.m in Sources */ = {isa = PBXBuildFile; fileRef = E834328420FD06E600B86759 /* FBDateTime.m */; };
 		E862D6C720FB545600CEA180 /* FBModelObject.m in Sources */ = {isa = PBXBuildFile; fileRef = E862D6C620FB545600CEA180 /* FBModelObject.m */; };
@@ -47,6 +48,8 @@
 		888FC5B14AC0AF1F7D7A3E56 /* Pods-fb-timetable.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fb-timetable.debug.xcconfig"; path = "Pods/Target Support Files/Pods-fb-timetable/Pods-fb-timetable.debug.xcconfig"; sourceTree = "<group>"; };
 		A82012B484F8EAD4B765F2CE /* Pods-fb-timetable.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fb-timetable.release.xcconfig"; path = "Pods/Target Support Files/Pods-fb-timetable/Pods-fb-timetable.release.xcconfig"; sourceTree = "<group>"; };
 		DA8B78969EDA022ABC9F4554 /* libPods-fb-timetable.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-fb-timetable.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E815253420FDF55900DB4BF4 /* UIView+AutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AutoLayout.h"; sourceTree = "<group>"; };
+		E815253520FDF55900DB4BF4 /* UIView+AutoLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+AutoLayout.m"; sourceTree = "<group>"; };
 		E834328020FD05EF00B86759 /* FBRouteStop.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FBRouteStop.h; sourceTree = "<group>"; };
 		E834328120FD05EF00B86759 /* FBRouteStop.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FBRouteStop.m; sourceTree = "<group>"; };
 		E834328320FD06E600B86759 /* FBDateTime.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FBDateTime.h; sourceTree = "<group>"; };
@@ -125,6 +128,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		E815253320FDF53A00DB4BF4 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				E815253420FDF55900DB4BF4 /* UIView+AutoLayout.h */,
+				E815253520FDF55900DB4BF4 /* UIView+AutoLayout.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
 		E862D6B320FB4E6E00CEA180 /* API */ = {
 			isa = PBXGroup;
 			children = (
@@ -184,6 +196,7 @@
 			children = (
 				E862D6D620FB6DCB00CEA180 /* Models */,
 				E862D6B320FB4E6E00CEA180 /* API */,
+				E815253320FDF53A00DB4BF4 /* Categories */,
 				E882B83B20FA99710067D9C0 /* AppDelegate.h */,
 				E882B83C20FA99710067D9C0 /* AppDelegate.m */,
 				E882B83E20FA99710067D9C0 /* MainViewController.h */,
@@ -370,6 +383,7 @@
 				E882B84B20FA99720067D9C0 /* main.m in Sources */,
 				E862D6DC20FB795100CEA180 /* FBCoordinate.m in Sources */,
 				E834328520FD06E600B86759 /* FBDateTime.m in Sources */,
+				E815253620FDF55900DB4BF4 /* UIView+AutoLayout.m in Sources */,
 				E862D6CC20FB55FF00CEA180 /* FBApiManager.m in Sources */,
 				E862D6D520FB5F3600CEA180 /* FBRouteTimetable.m in Sources */,
 				E862D6CF20FB57A800CEA180 /* FBApiSettings.m in Sources */,

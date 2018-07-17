@@ -43,7 +43,6 @@
     self.segmentControl = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:@"Arrivals", @"Departure", nil]];
     [self.segmentControl setBackgroundColor:UIColor.whiteColor];
 
-//    [self.segmentControl setTitle:@"Arrivals" forSegmentAtIndex:0];
     [self.view addSubview:self.segmentControl];
     [self.segmentControl autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsMake(100, 0, 0, 0) excludingEdge:ALEdgeBottom];
 }
