@@ -11,21 +11,24 @@
 #import "FBRouteTimetable.h"
 #import "FBRouteStopTableViewCell.h"
 #import "FBSectionHeaderView.h"
+#import "FBRouteTableModel.h"
 #import "UIColor+Hex.h" //FIXME - Add in Constant of PCH file.
+
+typedef NS_ENUM( NSInteger, FBSegmentType ) {
+    FBSegmentTypeArrivals = 0,
+    FBSegmentTypeDepartures = 1
+};
 
 @interface MainViewController() <FBRouteTimetableDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @property(nonatomic, strong) UITableView *tableView;
+@property(nonatomic, strong) FBRouteTableModel *tableData;
+
 @property(nonatomic, strong) UISegmentedControl *segmentControl;
-@property(nonatomic, strong) FBRouteTimetable *timetableObj;
+@property(nonatomic, strong) FBRouteTimetable *timetableAPIObj;
 @property(nonatomic, strong) NSArray *currentlyShowingData;
 
 @end
-
-typedef NS_ENUM( NSInteger, FBSegment ) {
-    FBSegmentArrivals = 0,
-    FBSegmentDepartures = 1
-};
 
 @implementation MainViewController
 
@@ -39,17 +42,18 @@ typedef NS_ENUM( NSInteger, FBSegment ) {
 
 - (void)setupDefaults {
     self.currentlyShowingData = [[NSArray alloc] init];
+    self.tableData = [[FBRouteTableModel alloc] init];
     [self.view setBackgroundColor:[UIColor colorWithHex:0xF7F7F4]];
     
-    //navigation headr
+    //navigation header
     self.navigationItem.title = @"Loading data...";
     [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithHex:0x73D700]];
 }
 
 - (void)getData {
-    self.timetableObj = [[FBRouteTimetable alloc] init];
+    self.timetableAPIObj = [[FBRouteTimetable alloc] init];
     //FIXME - City Id
-    [self.timetableObj getFBRouteTimetableForCityId:@(1) delegate:self];
+    [self.timetableAPIObj getFBRouteTimetableForCityId:@(1) delegate:self];
 }
 
 - (void)createViews {
@@ -66,7 +70,7 @@ typedef NS_ENUM( NSInteger, FBSegment ) {
     [self.segmentControl setTitleTextAttributes:attributes                                    forState:UIControlStateNormal];
 
     [self.segmentControl setBackgroundColor:UIColor.whiteColor];
-    [self.segmentControl setSelectedSegmentIndex:FBSegmentArrivals];
+    [self.segmentControl setSelectedSegmentIndex:FBSegmentTypeArrivals];
     [self.segmentControl addTarget:self action:@selector(didTapSegmentedControl:) forControlEvents:UIControlEventValueChanged];
     [self.view addSubview:self.segmentControl];
     [self.segmentControl setTintColor:[UIColor colorWithHex:0x73D700]];
@@ -107,25 +111,34 @@ typedef NS_ENUM( NSInteger, FBSegment ) {
 }
 
 - (void)routeTimetableDownloadedSuccessfully {
+    [self.tableData setRouteTimetable:self.timetableAPIObj];
     [self.tableView reloadData];
     self.navigationItem.title = @"Data =";
 }
 
 #pragma mark - Segmented Control Interaction
 - (void)didTapSegmentedControl:(UISegmentedControl *)segmentedControl {
-    if(segmentedControl.selectedSegmentIndex == FBSegmentArrivals) {
-        self.currentlyShowingData = self.timetableObj.arrivals;
+    if(segmentedControl.selectedSegmentIndex == FBSegmentTypeArrivals) {
+        self.currentlyShowingData = self.timetableAPIObj.arrivals;
         [self.tableView reloadData];
     }
     else {
-        self.currentlyShowingData = self.timetableObj.departures;
+        self.currentlyShowingData = self.timetableAPIObj.departures;
         [self.tableView reloadData];
     }
 }
 
 #pragma mark - UITableViewDataSource
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return self.tableData.arrivalSections.count;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.currentlyShowingData.count;
+    if (self.tableData.arrivalSections.count) {
+        FBRouteSectionModel *currentSection = [self.tableData.arrivalSections objectAtIndex:section];
+        return currentSection.sectionCells.count;
+    }
+    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -135,15 +148,32 @@ typedef NS_ENUM( NSInteger, FBSegment ) {
     if (!cell) {
         cell = [[FBRouteStopTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:reuseIdentifier];
     }
-    FBRouteStop *routeStop = [self.currentlyShowingData objectAtIndex:indexPath.row];
-    [cell setRouteStop:routeStop];
+    
+    FBRouteSectionModel *currentSection = [self.tableData.arrivalSections objectAtIndex:indexPath.row];
+    FBRouteCellModel *cellVM = [currentSection.sectionCells objectAtIndex:indexPath.row];
+    
+    [cell setHighlighterText:cellVM.highlightText];
+    [cell setTitleText:cellVM.titleText];
+    [cell setSubtitleText:cellVM.subtitleText];
+    [cell setAccessoryText:cellVM.accessoryText];
+    
     return cell;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    FBSectionHeaderView *headerView = [[FBSectionHeaderView alloc] init];
-    [headerView setTitleText:@"Today · 18 July 2018" subtitleText:@"7 buses departing"];
-    return headerView;
+    if(self.tableData.arrivalSections.count) {
+        FBSectionHeaderView *headerView = [[FBSectionHeaderView alloc] init];
+        FBRouteSectionModel *sectionData = [self.tableData.arrivalSections objectAtIndex:section];
+        
+        //FIXME- SECTION TIME
+        NSString *subtitle = [NSString stringWithFormat:@"%lu buses", (unsigned long)sectionData.sectionCells.count];
+        FBRouteCellModel *cellData = sectionData.sectionCells.firstObject;
+        [headerView setTitleText:cellData.accessoryText subtitleText:subtitle];
+        
+        return headerView;
+    }
+    
+    return nil;
 }
 
 @end

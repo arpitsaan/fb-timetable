@@ -1,19 +1,21 @@
 //
-//  FBRouteStopTableViewCell.h
+//  FBRouteCellModel.h
 //  fb-timetable
 //
 //  Created by Arpit Agarwal on 18/07/18.
 //  Copyright © 2018 acyooman. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import "FBRouteCellModel.h"
+#import <Foundation/Foundation.h>
+#import "FBRouteStop.h"
 
-@interface FBRouteStopTableViewCell : UITableViewCell
+@interface FBRouteCellModel : NSObject
 
+@property(nonatomic, strong) NSString *highlightText;
 @property(nonatomic, strong) NSString *titleText;
 @property(nonatomic, strong) NSString *subtitleText;
 @property(nonatomic, strong) NSString *accessoryText;
-@property(nonatomic, strong) NSString *highlighterText;
+
+- (instancetype)initWithRouteStop:(FBRouteStop *)routeStop;
 
 @end

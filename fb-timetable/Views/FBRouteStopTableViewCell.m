@@ -11,10 +11,10 @@
 #import "UIColor+Hex.h"
 
 @interface FBRouteStopTableViewCell()
-@property(nonatomic, strong) UILabel *lineCodeLabel;
-@property(nonatomic, strong) UILabel *directionLabel;
-@property(nonatomic, strong) UILabel *routeDetailsLabel;
-@property(nonatomic, strong) UILabel *timingLabel;
+@property(nonatomic, strong) UILabel *highlighterLabel;
+@property(nonatomic, strong) UILabel *titleLabel;
+@property(nonatomic, strong) UILabel *subtitleLabel;
+@property(nonatomic, strong) UILabel *accessoryLabel;
 @end
 
 @implementation FBRouteStopTableViewCell
@@ -30,78 +30,78 @@
 
 #pragma mark - Create Views
 - (void)createViews {
-    //line code label
-    self.lineCodeLabel = [[UILabel alloc] init];
-    [self.lineCodeLabel setFont:[UIFont systemFontOfSize:14 weight:UIFontWeightBold]];
-    [self.lineCodeLabel setTextColor:[UIColor colorWithHex:0x57A300]];
-    [self.contentView addSubview:self.lineCodeLabel];
+    //highlighter label
+    self.highlighterLabel = [[UILabel alloc] init];
+    [self.highlighterLabel setFont:[UIFont systemFontOfSize:14 weight:UIFontWeightBold]];
+    [self.highlighterLabel setTextColor:[UIColor colorWithHex:0x57A300]];
+    [self.contentView addSubview:self.highlighterLabel];
     
-    //direction label
-    self.directionLabel = [[UILabel alloc] init];
-    [self.directionLabel setFont: [UIFont systemFontOfSize:18 weight:UIFontWeightSemibold]];
-    [self.directionLabel setText:@"Station of the Bus"];
-    [self.directionLabel setNumberOfLines:0];
-    [self.contentView addSubview:self.directionLabel];
+    //title label
+    self.titleLabel = [[UILabel alloc] init];
+    [self.titleLabel setFont: [UIFont systemFontOfSize:18 weight:UIFontWeightSemibold]];
+    [self.titleLabel setText:@"Station of the Bus"];
+    [self.titleLabel setNumberOfLines:0];
+    [self.contentView addSubview:self.titleLabel];
     
-    //route details label
-    self.routeDetailsLabel = [[UILabel alloc] init];
-     [self.routeDetailsLabel setFont:[UIFont systemFontOfSize:13 weight:UIFontWeightRegular]];
-    [self.routeDetailsLabel setTextColor:UIColor.grayColor];
-    [self.routeDetailsLabel setNumberOfLines:0];
-    [self.routeDetailsLabel setLineBreakMode:NSLineBreakByWordWrapping];
-    [self.contentView addSubview:self.routeDetailsLabel];
+    //subtitle label
+    self.subtitleLabel = [[UILabel alloc] init];
+     [self.subtitleLabel setFont:[UIFont systemFontOfSize:13 weight:UIFontWeightRegular]];
+    [self.subtitleLabel setTextColor:UIColor.grayColor];
+    [self.subtitleLabel setNumberOfLines:0];
+    [self.subtitleLabel setLineBreakMode:NSLineBreakByWordWrapping];
+    [self.contentView addSubview:self.subtitleLabel];
     
-    //timing label
-    self.timingLabel = [[UILabel alloc] init];
-    [self.timingLabel setFont:[UIFont systemFontOfSize:18 weight:UIFontWeightSemibold]];
-    [self.contentView addSubview:self.timingLabel];
+    //accessory label
+    self.accessoryLabel = [[UILabel alloc] init];
+    [self.accessoryLabel setFont:[UIFont systemFontOfSize:18 weight:UIFontWeightSemibold]];
+    [self.contentView addSubview:self.accessoryLabel];
 }
 
 - (void)setConstraints {
     //constants
     CGFloat padding = 15.0f;
     
-    //line code label
-    [self.lineCodeLabel setTopView:self.contentView constant:padding];
-    [self.lineCodeLabel setLeadingView:self.contentView constant:padding];
-    [self.lineCodeLabel setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
-    [self.lineCodeLabel setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisVertical];
+    //highlighter label
+    [self.highlighterLabel setTopView:self.contentView constant:padding];
+    [self.highlighterLabel setLeadingView:self.contentView constant:padding];
+    [self.highlighterLabel setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
+    [self.highlighterLabel setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisVertical];
     
-    //direction label
-    [self.directionLabel setBelowView:self.lineCodeLabel constant:2.0f];
-    [self.directionLabel setLeadingView:self.lineCodeLabel];
-    [self.directionLabel setBeforeView:self.timingLabel];
+    //title label
+    [self.titleLabel setBelowView:self.highlighterLabel constant:2.0f];
+    [self.titleLabel setLeadingView:self.highlighterLabel];
+    [self.titleLabel setBeforeView:self.accessoryLabel];
     
-    //route details label
-    [self.routeDetailsLabel setBelowView:self.directionLabel constant:2.0f];
-    [self.routeDetailsLabel setSameLeadingTrailingView:self.directionLabel];
-    [self.routeDetailsLabel setBottomView:self.contentView constant:padding];
+    //subtitle label
+    [self.subtitleLabel setBelowView:self.titleLabel constant:2.0f];
+    [self.subtitleLabel setSameLeadingTrailingView:self.titleLabel];
+    [self.subtitleLabel setBottomView:self.contentView constant:padding];
     
-    //timings label
-    [self.timingLabel setCenterYView:self.contentView];
-    [self.timingLabel setTrailingView:self.contentView constant:padding];
-    [self.timingLabel setTextAlignment:NSTextAlignmentRight];
-    [self.timingLabel setViewWidth:70.0f];
+    //accessory label
+    [self.accessoryLabel setCenterYView:self.contentView];
+    [self.accessoryLabel setTrailingView:self.contentView constant:padding];
+    [self.accessoryLabel setTextAlignment:NSTextAlignmentRight];
+    [self.accessoryLabel setViewWidth:70.0f];
 }
 
-- (void)setRouteStop:(FBRouteStop *)routeStop {
-    //FIXME - move to background thread during parsing
-    NSDate *dateObj = [NSDate dateWithTimeIntervalSince1970:routeStop.timeObj.timestamp.integerValue];
-    NSDateFormatter *timeFormatter = [[NSDateFormatter alloc] init];
-    [timeFormatter setDateStyle:NSDateFormatterMediumStyle];
-    [timeFormatter setDateFormat:@"HH:mm"];
-    
-    //timezone
-    NSTimeZone *tz = [[NSTimeZone alloc] initWithName:routeStop.timeObj.timezone];
-    [timeFormatter setTimeZone:tz];
-    NSString *timingString = [timeFormatter stringFromDate:dateObj];
-    
-    [self.lineCodeLabel setText:routeStop.lineCode];
-    [self.directionLabel setText:routeStop.direction];
-    [self.routeDetailsLabel setText:routeStop.throughStations];
-    [self.timingLabel setText:timingString];
-    
-    [self layoutIfNeeded];
+- (void)setTitleText:(NSString *)titleText {
+    _titleText = titleText;
+    [self.titleLabel setText:_titleText];
+}
+
+- (void)setsubtitleText:(NSString *)subtitleText {
+    _subtitleText = subtitleText;
+    [self.subtitleLabel setText:_subtitleText];
+}
+
+- (void)setaccessoryText:(NSString *)accessoryText {
+    _accessoryText = accessoryText;
+    [self.accessoryLabel setText:_accessoryText];
+}
+
+- (void)sethighlighterText:(NSString *)highlighterText {
+    _highlighterText = highlighterText;
+    [self.highlighterLabel setText:_highlighterText];
 }
 
 @end

@@ -28,6 +28,10 @@
 		E882B84B20FA99720067D9C0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E882B84A20FA99720067D9C0 /* main.m */; };
 		E882B85520FA99720067D9C0 /* fb_timetableTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E882B85420FA99720067D9C0 /* fb_timetableTests.m */; };
 		E882B86020FA99720067D9C0 /* fb_timetableUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E882B85F20FA99720067D9C0 /* fb_timetableUITests.m */; };
+		E8EFB5E720FF802800131CB5 /* FBRouteCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E8EFB5E620FF802800131CB5 /* FBRouteCellModel.m */; };
+		E8EFB5EA20FF803700131CB5 /* FBRouteTableModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E8EFB5E920FF803700131CB5 /* FBRouteTableModel.m */; };
+		E8EFB5ED20FF80AC00131CB5 /* FBRouteSectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E8EFB5EC20FF80AC00131CB5 /* FBRouteSectionModel.m */; };
+		E8EFB5F120FF84C300131CB5 /* FBCommonHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = E8EFB5F020FF84C300131CB5 /* FBCommonHelpers.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +96,14 @@
 		E882B85B20FA99720067D9C0 /* fb-timetableUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "fb-timetableUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E882B85F20FA99720067D9C0 /* fb_timetableUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = fb_timetableUITests.m; sourceTree = "<group>"; };
 		E882B86120FA99720067D9C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E8EFB5E520FF802800131CB5 /* FBRouteCellModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FBRouteCellModel.h; sourceTree = "<group>"; };
+		E8EFB5E620FF802800131CB5 /* FBRouteCellModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FBRouteCellModel.m; sourceTree = "<group>"; };
+		E8EFB5E820FF803700131CB5 /* FBRouteTableModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FBRouteTableModel.h; sourceTree = "<group>"; };
+		E8EFB5E920FF803700131CB5 /* FBRouteTableModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FBRouteTableModel.m; sourceTree = "<group>"; };
+		E8EFB5EB20FF80AC00131CB5 /* FBRouteSectionModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FBRouteSectionModel.h; sourceTree = "<group>"; };
+		E8EFB5EC20FF80AC00131CB5 /* FBRouteSectionModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FBRouteSectionModel.m; sourceTree = "<group>"; };
+		E8EFB5EF20FF84C300131CB5 /* FBCommonHelpers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FBCommonHelpers.h; sourceTree = "<group>"; };
+		E8EFB5F020FF84C300131CB5 /* FBCommonHelpers.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FBCommonHelpers.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,6 +228,8 @@
 		E882B83A20FA99710067D9C0 /* fb-timetable */ = {
 			isa = PBXGroup;
 			children = (
+				E8EFB5EE20FF84AC00131CB5 /* Helpers */,
+				E8EFB5E420FF7EB500131CB5 /* ViewModels */,
 				E815254B20FF34F000DB4BF4 /* Views */,
 				E862D6D620FB6DCB00CEA180 /* Models */,
 				E862D6B320FB4E6E00CEA180 /* API */,
@@ -248,6 +262,28 @@
 				E882B86120FA99720067D9C0 /* Info.plist */,
 			);
 			path = "fb-timetableUITests";
+			sourceTree = "<group>";
+		};
+		E8EFB5E420FF7EB500131CB5 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				E8EFB5E520FF802800131CB5 /* FBRouteCellModel.h */,
+				E8EFB5E620FF802800131CB5 /* FBRouteCellModel.m */,
+				E8EFB5E820FF803700131CB5 /* FBRouteTableModel.h */,
+				E8EFB5E920FF803700131CB5 /* FBRouteTableModel.m */,
+				E8EFB5EB20FF80AC00131CB5 /* FBRouteSectionModel.h */,
+				E8EFB5EC20FF80AC00131CB5 /* FBRouteSectionModel.m */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		E8EFB5EE20FF84AC00131CB5 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				E8EFB5EF20FF84C300131CB5 /* FBCommonHelpers.h */,
+				E8EFB5F020FF84C300131CB5 /* FBCommonHelpers.m */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -401,6 +437,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E8EFB5F120FF84C300131CB5 /* FBCommonHelpers.m in Sources */,
 				E882B84020FA99710067D9C0 /* MainViewController.m in Sources */,
 				E815255420FF4A3200DB4BF4 /* FBSectionHeaderView.m in Sources */,
 				E815255120FF39F700DB4BF4 /* UIColor+Hex.m in Sources */,
@@ -410,10 +447,13 @@
 				E834328520FD06E600B86759 /* FBDateTime.m in Sources */,
 				E815253620FDF55900DB4BF4 /* UIView+AutoLayout.m in Sources */,
 				E862D6CC20FB55FF00CEA180 /* FBApiManager.m in Sources */,
+				E8EFB5ED20FF80AC00131CB5 /* FBRouteSectionModel.m in Sources */,
 				E862D6D520FB5F3600CEA180 /* FBRouteTimetable.m in Sources */,
 				E862D6CF20FB57A800CEA180 /* FBApiSettings.m in Sources */,
 				E862D6D220FB5B6300CEA180 /* FBAPIInitializer.m in Sources */,
+				E8EFB5EA20FF803700131CB5 /* FBRouteTableModel.m in Sources */,
 				E834328220FD05EF00B86759 /* FBRouteStop.m in Sources */,
+				E8EFB5E720FF802800131CB5 /* FBRouteCellModel.m in Sources */,
 				E815254E20FF353900DB4BF4 /* FBRouteStopTableViewCell.m in Sources */,
 				E862D6C720FB545600CEA180 /* FBModelObject.m in Sources */,
 				E882B83D20FA99710067D9C0 /* AppDelegate.m in Sources */,
