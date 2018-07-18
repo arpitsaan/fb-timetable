@@ -79,10 +79,6 @@
     if ([self.delegate respondsToSelector:@selector(routeTimetableDownloadFailedWithError:)]) {
         [self.delegate routeTimetableDownloadFailedWithError:error];
     }
-    
-    if (DEBUG) {
-        NSLog(@"FBRouteTimetable [API ERROR] %@", error);
-    }
 }
 
 #pragma mark - Helpers
@@ -90,6 +86,11 @@
     NSMutableDictionary *paramsDict = [[NSMutableDictionary alloc] init];
     [paramsDict setValue:self.cityId forKey:@"city_id"];
     return paramsDict;
+}
+
+- (void)cleanUpData {
+    self.arrivals = [NSArray array];
+    self.departures = [NSArray array];
 }
 
 

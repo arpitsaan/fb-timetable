@@ -28,24 +28,6 @@
 
 - (void)getFBRouteTimetableForCityId:(NSNumber *)cityId delegate:(id<FBRouteTimetableDelegate>)delegate;
 
-@end
+- (void)cleanUpData;
 
-/*"route": [
- {
- "id": 984,
- "name": "Göhren Rügen",
- "default_address": {
- "address": "Bahnhofstraße 1",
- "full_address": "Bahnhofstraße 1, 18586 Göhren, Germany",
- "coordinates": {
- "latitude": 54.345715,
- "longitude": 13.738117
- }
- },
- "address": "Bahnhofstraße 1",
- "full_address": "Bahnhofstraße 1, 18586 Göhren, Germany",
- "coordinates": {
- "latitude": 54.345715,
- "longitude": 13.738117
- }
- */
+@end

@@ -21,12 +21,13 @@ typedef NS_ENUM( NSInteger, FBSegmentType ) {
 
 @interface MainViewController() <FBRouteTimetableDelegate, UITableViewDataSource, UITableViewDelegate>
 
-@property(nonatomic, strong) UITableView *tableView;
 @property(nonatomic, strong) FBRouteTableModel *tableData;
-
-@property(nonatomic, strong) UISegmentedControl *segmentControl;
 @property(nonatomic, strong) FBRouteTimetable *timetableAPIObj;
 @property(nonatomic, strong) NSArray *currentlyShowingData;
+
+@property(nonatomic, strong) UITableView *tableView;
+@property(nonatomic, strong) UISegmentedControl *segmentControl;
+@property(nonatomic, strong) UIActivityIndicatorView *loader;
 
 @end
 
@@ -36,6 +37,7 @@ typedef NS_ENUM( NSInteger, FBSegmentType ) {
     [super viewDidLoad];
     
     [self setupDefaults];
+    [self setupNavigationBar];
     [self createViews];
     [self getData];
 }
@@ -43,38 +45,58 @@ typedef NS_ENUM( NSInteger, FBSegmentType ) {
 - (void)setupDefaults {
     self.currentlyShowingData = [[NSArray alloc] init];
     self.tableData = [[FBRouteTableModel alloc] init];
+    
     [self.view setBackgroundColor:[UIColor colorWithHex:0xF7F7F4]];
     
-    //navigation header
-    self.navigationItem.title = @"Loading data...";
-    [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithHex:0x73D700]];
 }
 
 - (void)getData {
+    self.navigationItem.title = @"Fetching timings...";
+    [self.loader startAnimating];
     self.timetableAPIObj = [[FBRouteTimetable alloc] init];
     [self.timetableAPIObj getFBRouteTimetableForCityId:@(1) delegate:self];
 }
 
+#pragma mark - View Setup
+- (void)setupNavigationBar {
+    //navigation header
+    [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithHex:0x73D700]];
+    
+    [self.navigationController.navigationBar setTitleTextAttributes:
+     @{NSForegroundColorAttributeName:[UIColor whiteColor],
+       NSFontAttributeName:[UIFont systemFontOfSize:18 weight:UIFontWeightBold]}];
+}
+
 - (void)createViews {
+    [self createLoader];
     [self createSegmentedControl];
     [self createTableView];
-    [self.view bringSubviewToFront:self.segmentControl];
+}
+
+- (void)createLoader {
+    self.loader = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+    [self.navigationController.navigationBar addSubview:self.loader];
+    [self.loader setHidesWhenStopped:YES];
+    
+    [self.loader setBottomView:self.navigationController.navigationBar constant:12.0f];
+    [self.loader setTrailingView:self.navigationController.navigationBar constant:12.0f];
 }
 
 - (void)createSegmentedControl {
-    self.segmentControl = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:@"Arrivals", @"Departure", nil]];
+    self.segmentControl = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:@"Arrivals", @"Departures", nil]];
+    
+    //customize appearance
     UIFont *font = [UIFont systemFontOfSize:15 weight:UIFontWeightSemibold];
-    NSDictionary *attributes = [NSDictionary dictionaryWithObject:font
-                                                           forKey:NSFontAttributeName];
+    NSDictionary *attributes = [NSDictionary dictionaryWithObject:font forKey:NSFontAttributeName];
     [self.segmentControl setTitleTextAttributes:attributes                                    forState:UIControlStateNormal];
-
     [self.segmentControl setBackgroundColor:UIColor.whiteColor];
     [self.segmentControl setSelectedSegmentIndex:FBSegmentTypeArrivals];
-    [self.segmentControl addTarget:self action:@selector(didTapSegmentedControl:) forControlEvents:UIControlEventValueChanged];
+    [self.segmentControl addTarget:self action:@selector(didToggleSegmentedControl:) forControlEvents:UIControlEventValueChanged];
     [self.view addSubview:self.segmentControl];
     [self.segmentControl setTintColor:[UIColor colorWithHex:0x73D700]];
+    [self.segmentControl setHidden:YES];
     
-    //set constraints
+    //setup constraints
     if (@available(iOS 11.0, *)) {
         UILayoutGuide *safe = self.view.safeAreaLayoutGuide;
         [NSLayoutConstraint activateConstraints:@[
@@ -95,6 +117,8 @@ typedef NS_ENUM( NSInteger, FBSegmentType ) {
     [self.tableView setBackgroundColor:[UIColor colorWithHex:0xF7F7F4]];
     [self.tableView setDataSource:self];
     [self.tableView setDelegate:self];
+    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    [self.tableView setAllowsSelection:NO];
     [self.view addSubview:self.tableView];
 
     //set constraints
@@ -103,40 +127,43 @@ typedef NS_ENUM( NSInteger, FBSegmentType ) {
     [self.tableView setSameLeadingTrailingView:self.view];
 }
 
-#pragma mark - FBRouteTimetableDelegate methods
+#pragma mark - FBRouteTimetableAPIDelegate methods
 - (void)routeTimetableDownloadFailedWithError:(NSError *)error {
-    self.navigationItem.title = [NSString stringWithFormat:@"Error! [%@]", error.description];
+    [self.tableView reloadData];
+    [self.segmentControl setHidden:YES];
+    self.navigationItem.title = @"Berlin ZOB";
 }
 
 - (void)routeTimetableDownloadedSuccessfully {
-    NSLog(@"Arpit Start Time - %@",[NSDate date]);
     dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^(void){
         
-        //Create View Model in background thread
+        //create View Model in background thread
         [self.tableData setRouteTimetable:self.timetableAPIObj];
         
         dispatch_async(dispatch_get_main_queue(), ^(void){
             //Main Thread
             [self.tableView reloadData];
-            NSLog(@"Arpit Stop Time - %@",[NSDate date]);
-            self.navigationItem.title = @"Data =";
+            [self.segmentControl setHidden:NO];
+            self.navigationItem.title = @"Berlin ZOB";
+            [self.loader stopAnimating];
         });
     });
 }
 
 #pragma mark - Segmented Control Interaction
-- (void)didTapSegmentedControl:(UISegmentedControl *)segmentedControl {
+- (void)didToggleSegmentedControl:(UISegmentedControl *)segmentedControl {
     if(segmentedControl.selectedSegmentIndex == FBSegmentTypeArrivals) {
         self.currentlyShowingData = self.timetableAPIObj.arrivals;
-        [self.tableView reloadData];
     }
     else {
         self.currentlyShowingData = self.timetableAPIObj.departures;
-        [self.tableView reloadData];
     }
+    
+    [self.tableView setContentOffset:CGPointZero];
+    [self.tableView reloadData];
 }
 
-#pragma mark - UITableViewDataSource
+#pragma mark - UITableViewDataSource Methods
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return self.tableData.arrivalSections.count;
 }
@@ -164,6 +191,7 @@ typedef NS_ENUM( NSInteger, FBSegmentType ) {
     [cell setTitleText:cellVM.titleText];
     [cell setSubtitleText:cellVM.subtitleText];
     [cell setAccessoryText:cellVM.accessoryText];
+    [cell setIconImage:[UIImage imageNamed:@"clock-icon"]];
     
     return cell;
 }

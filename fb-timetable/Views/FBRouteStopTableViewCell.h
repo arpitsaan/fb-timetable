@@ -15,5 +15,6 @@
 @property(nonatomic, strong) NSString *subtitleText;
 @property(nonatomic, strong) NSString *accessoryText;
 @property(nonatomic, strong) NSString *highlighterText;
+@property(nonatomic, strong) UIImage *iconImage;
 
 @end

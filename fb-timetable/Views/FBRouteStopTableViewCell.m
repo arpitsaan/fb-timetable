@@ -15,6 +15,7 @@
 @property(nonatomic, strong) UILabel *titleLabel;
 @property(nonatomic, strong) UILabel *subtitleLabel;
 @property(nonatomic, strong) UILabel *accessoryLabel;
+@property(nonatomic, strong) UIImageView *iconImageView;
 @end
 
 @implementation FBRouteStopTableViewCell
@@ -51,6 +52,12 @@
     [self.subtitleLabel setLineBreakMode:NSLineBreakByWordWrapping];
     [self.contentView addSubview:self.subtitleLabel];
     
+    //icons image
+    self.iconImageView = [[UIImageView alloc] init];
+    [self.iconImageView.layer setMinificationFilter:kCAFilterTrilinear];
+    [self.contentView addSubview:self.iconImageView];
+    [self.iconImageView setContentMode:UIViewContentModeScaleAspectFit];
+    
     //accessory label
     self.accessoryLabel = [[UILabel alloc] init];
     [self.accessoryLabel setFont:[UIFont systemFontOfSize:18 weight:UIFontWeightSemibold]];
@@ -70,18 +77,24 @@
     //title label
     [self.titleLabel setBelowView:self.highlighterLabel constant:2.0f];
     [self.titleLabel setLeadingView:self.highlighterLabel];
-    [self.titleLabel setBeforeView:self.accessoryLabel];
+    [self.titleLabel setBeforeView:self.iconImageView constant:5.0f];
     
     //subtitle label
     [self.subtitleLabel setBelowView:self.titleLabel constant:2.0f];
     [self.subtitleLabel setSameLeadingTrailingView:self.titleLabel];
     [self.subtitleLabel setBottomView:self.contentView constant:padding];
     
+    //icon image
+    [self.iconImageView setViewSize:CGSizeMake(14.0, 14.0)];
+    [self.iconImageView setCenterYView:self.accessoryLabel];
+    [self.iconImageView setBeforeView:self.accessoryLabel constant:2.0f];
+    
     //accessory label
     [self.accessoryLabel setCenterYView:self.contentView];
     [self.accessoryLabel setTrailingView:self.contentView constant:padding];
     [self.accessoryLabel setTextAlignment:NSTextAlignmentRight];
-    [self.accessoryLabel setViewWidth:70.0f];
+    [self.accessoryLabel setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
+    [self.accessoryLabel setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisVertical];
 }
 
 - (void)setTitleText:(NSString *)titleText {
@@ -108,4 +121,8 @@
     [self layoutIfNeeded];
 }
 
+- (void)setIconImage:(UIImage *)iconImage {
+    _iconImage = iconImage;
+    [self.iconImageView setImage:_iconImage];
+}
 @end

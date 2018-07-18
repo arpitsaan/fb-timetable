@@ -11,6 +11,7 @@
 
 @implementation FBRouteTableModel
 
+#pragma mark - Init Method
 - (instancetype)init {
     self = [super init];
     if (self) {
@@ -20,6 +21,7 @@
     return self;
 }
 
+#pragma mark - Setters
 - (void)setRouteTimetable:(FBRouteTimetable *)timeTable {
     self.arrivalSections  = [self getSectionsArrayWithRouteStops:timeTable.arrivals];
     self.departureSections  = [self getSectionsArrayWithRouteStops:timeTable.departures];
@@ -77,9 +79,13 @@
         [tempMainArray addObject:[self getSectionModelObjWithRoutesArray:currentSectionArray]];
     }
     
+    //done, return.
     return tempMainArray;
 }
 
+/*
+ Returns a section view model object when an array of route stops is passed.
+ */
 - (FBRouteSectionModel *)getSectionModelObjWithRoutesArray:(NSArray <FBRouteStop *>*)array {
     FBRouteSectionModel *sectionDataObj = [[FBRouteSectionModel alloc] initWithArray:array];
     FBRouteStop *firstStop = [array firstObject];

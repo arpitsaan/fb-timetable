@@ -228,20 +228,14 @@
 		E882B83A20FA99710067D9C0 /* fb-timetable */ = {
 			isa = PBXGroup;
 			children = (
+				E8EFB5F220FFCE8600131CB5 /* Core */,
 				E8EFB5EE20FF84AC00131CB5 /* Helpers */,
 				E8EFB5E420FF7EB500131CB5 /* ViewModels */,
 				E815254B20FF34F000DB4BF4 /* Views */,
 				E862D6D620FB6DCB00CEA180 /* Models */,
 				E862D6B320FB4E6E00CEA180 /* API */,
 				E815253320FDF53A00DB4BF4 /* Categories */,
-				E882B83B20FA99710067D9C0 /* AppDelegate.h */,
-				E882B83C20FA99710067D9C0 /* AppDelegate.m */,
-				E882B83E20FA99710067D9C0 /* MainViewController.h */,
-				E882B83F20FA99710067D9C0 /* MainViewController.m */,
-				E882B84420FA99720067D9C0 /* Assets.xcassets */,
-				E882B84620FA99720067D9C0 /* LaunchScreen.storyboard */,
 				E882B84920FA99720067D9C0 /* Info.plist */,
-				E882B84A20FA99720067D9C0 /* main.m */,
 			);
 			path = "fb-timetable";
 			sourceTree = "<group>";
@@ -284,6 +278,20 @@
 				E8EFB5F020FF84C300131CB5 /* FBCommonHelpers.m */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		E8EFB5F220FFCE8600131CB5 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				E882B83B20FA99710067D9C0 /* AppDelegate.h */,
+				E882B83C20FA99710067D9C0 /* AppDelegate.m */,
+				E882B83E20FA99710067D9C0 /* MainViewController.h */,
+				E882B83F20FA99710067D9C0 /* MainViewController.m */,
+				E882B84420FA99720067D9C0 /* Assets.xcassets */,
+				E882B84620FA99720067D9C0 /* LaunchScreen.storyboard */,
+				E882B84A20FA99720067D9C0 /* main.m */,
+			);
+			path = Core;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

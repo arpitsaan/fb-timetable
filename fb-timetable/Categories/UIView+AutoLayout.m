@@ -368,9 +368,9 @@ NSString *kWidthIdentifier = @"zWidthIdentifier";
 - (BOOL)validate:(UIView *)view {
     self.translatesAutoresizingMaskIntoConstraints = NO;
     if (view == nil) {
-        if (DEBUG) {
-            NSAssert(YES, @"View is nil! Please check your input");
-        }
+//        if (DEBUG) {
+//            NSAssert(YES, @"View is nil! Please check your input");
+//        }
         return NO;
     }
     return YES;
