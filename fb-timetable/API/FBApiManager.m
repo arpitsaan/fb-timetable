@@ -87,8 +87,8 @@ typedef void (^failureBlock)(NSURLSessionDataTask *dataTask, NSError *error);
     
     NSURLSessionDataTask *dataTask = [self.apiManager GET:apiPath parameters:nil progress:nil success:requestSuccess failure:requestFailure];
     
-    //log request in Debug
 #if DEBUG
+    //log request in Debug
         NSLog(@"Api path = %@", dataTask.originalRequest.URL.absoluteString);
         [requestParams addEntriesFromDictionary:self.apiManager.requestSerializer.HTTPRequestHeaders];
         NSLog(@"Request GET params: %@", requestParams);

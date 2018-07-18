@@ -17,6 +17,15 @@
 @end
 
 @implementation FBRouteTimetable
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        self.stationInfo = [[FBStation alloc] init];
+        self.arrivals = [NSArray array];
+        self.departures = [NSArray array];
+    }
+    return self;
+}
 
 - (void)getFBRouteTimetableForCityId:(NSNumber *)cityId delegate:(id<FBRouteTimetableDelegate>)delegate {
     self.delegate = delegate;
@@ -36,8 +45,10 @@
 }
 
 - (void)parseObject:(NSDictionary *)responseObject withInitialParams:(NSDictionary *)params {
-    self.status = [self getStringForKey:@"response.status" fromDictionary:responseObject withInitialValue:self.status];
-    self.message = [self getStringForKey:@"response.message" fromDictionary:responseObject withInitialValue:self.message];
+    
+    if ([responseObject objectForKey:@"station"]) {
+        [self.stationInfo parseObject:[responseObject objectForKey:@"station"] withInitialParams:params];
+    }
     
     self.tempArrivals = [[NSMutableArray alloc] init];
     self.tempDepartures = [[NSMutableArray alloc] init];

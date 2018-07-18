@@ -23,6 +23,7 @@
 
 #pragma mark - Setters
 - (void)setRouteTimetable:(FBRouteTimetable *)timeTable {
+    self.headerTitle = timeTable.stationInfo.name;
     self.arrivalSections  = [self getSectionsArrayWithRouteStops:timeTable.arrivals];
     self.departureSections  = [self getSectionsArrayWithRouteStops:timeTable.departures];
 }

@@ -23,9 +23,6 @@
 @property(nonatomic, strong) NSArray<FBRouteStop *> *arrivals;
 @property(nonatomic, strong) FBStation *stationInfo;
 
-@property(nonatomic, strong) NSString *status;
-@property(nonatomic, strong) NSString *message;
-
 - (void)getFBRouteTimetableForCityId:(NSNumber *)cityId delegate:(id<FBRouteTimetableDelegate>)delegate;
 
 - (void)cleanUpData;

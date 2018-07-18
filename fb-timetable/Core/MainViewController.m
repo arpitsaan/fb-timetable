@@ -131,7 +131,25 @@ typedef NS_ENUM( NSInteger, FBSegmentType ) {
 - (void)routeTimetableDownloadFailedWithError:(NSError *)error {
     [self.tableView reloadData];
     [self.segmentControl setHidden:YES];
-    self.navigationItem.title = @"Berlin ZOB";
+    [self.loader stopAnimating];
+    
+    //show alert
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Failed to fetch timings" message:error.localizedDescription preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil];
+    [alert addAction:okAction];
+    [self presentViewController:alert animated:YES completion:nil];
+    
+    self.navigationItem.title = @"Failed to fetch data - Retry";
+    
+    //retry button
+    UIBarButtonItem *retryButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(didTapRetryButton)];
+    [retryButton setTintColor:UIColor.whiteColor];
+    self.navigationItem.rightBarButtonItems = @[retryButton];
+}
+
+- (void)didTapRetryButton {
+    self.navigationItem.rightBarButtonItems = nil;
+    [self getData];
 }
 
 - (void)routeTimetableDownloadedSuccessfully {
@@ -144,7 +162,7 @@ typedef NS_ENUM( NSInteger, FBSegmentType ) {
             //Main Thread
             [self.tableView reloadData];
             [self.segmentControl setHidden:NO];
-            self.navigationItem.title = @"Berlin ZOB";
+            self.navigationItem.title = self.tableData.headerTitle;
             [self.loader stopAnimating];
         });
     });

@@ -12,6 +12,7 @@
 
 @interface FBRouteTableModel : NSObject
 
+@property(nonatomic, strong) NSString *headerTitle;
 @property(nonatomic, strong) NSArray<FBRouteSectionModel *> *arrivalSections;
 @property(nonatomic, strong) NSArray<FBRouteSectionModel *> *departureSections;
 
