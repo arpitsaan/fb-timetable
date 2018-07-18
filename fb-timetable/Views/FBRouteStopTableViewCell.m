@@ -87,21 +87,25 @@
 - (void)setTitleText:(NSString *)titleText {
     _titleText = titleText;
     [self.titleLabel setText:_titleText];
+    [self layoutIfNeeded];
 }
 
-- (void)setsubtitleText:(NSString *)subtitleText {
+- (void)setSubtitleText:(NSString *)subtitleText {
     _subtitleText = subtitleText;
     [self.subtitleLabel setText:_subtitleText];
+    [self layoutIfNeeded];
 }
 
-- (void)setaccessoryText:(NSString *)accessoryText {
+- (void)setAccessoryText:(NSString *)accessoryText {
     _accessoryText = accessoryText;
     [self.accessoryLabel setText:_accessoryText];
+    [self layoutIfNeeded];
 }
 
-- (void)sethighlighterText:(NSString *)highlighterText {
+- (void)setHighlighterText:(NSString *)highlighterText {
     _highlighterText = highlighterText;
     [self.highlighterLabel setText:_highlighterText];
+    [self layoutIfNeeded];
 }
 
 @end

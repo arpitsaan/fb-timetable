@@ -11,5 +11,6 @@
 @interface FBCommonHelpers : NSObject
 
 + (NSString *)get24HourStringWithTimestamp:(NSNumber *)timestamp timezone:(NSString *)timezone;
++ (NSString *)getDateStringWithTimestamp:(NSNumber *)timestamp timezone:(NSString *)timezone;
 
 @end

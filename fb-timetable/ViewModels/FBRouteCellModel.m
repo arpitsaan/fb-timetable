@@ -16,7 +16,7 @@
     
     if (self) {
         self.highlightText = routeStop.lineCode;
-        self.titleText = routeStop.lineDirection;
+        self.titleText = routeStop.direction;
         self.subtitleText = routeStop.throughStations;
         
         self.accessoryText = [FBCommonHelpers get24HourStringWithTimestamp:routeStop.timeObj.timestamp timezone:routeStop.timeObj.timezone];

@@ -111,9 +111,19 @@ typedef NS_ENUM( NSInteger, FBSegmentType ) {
 }
 
 - (void)routeTimetableDownloadedSuccessfully {
-    [self.tableData setRouteTimetable:self.timetableAPIObj];
-    [self.tableView reloadData];
-    self.navigationItem.title = @"Data =";
+    NSLog(@"Arpit Start Time - %@",[NSDate date]);
+    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^(void){
+        
+        //Create View Model in background thread
+        [self.tableData setRouteTimetable:self.timetableAPIObj];
+        
+        dispatch_async(dispatch_get_main_queue(), ^(void){
+            //Main Thread
+            [self.tableView reloadData];
+            NSLog(@"Arpit Stop Time - %@",[NSDate date]);
+            self.navigationItem.title = @"Data =";
+        });
+    });
 }
 
 #pragma mark - Segmented Control Interaction
@@ -149,7 +159,7 @@ typedef NS_ENUM( NSInteger, FBSegmentType ) {
         cell = [[FBRouteStopTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:reuseIdentifier];
     }
     
-    FBRouteSectionModel *currentSection = [self.tableData.arrivalSections objectAtIndex:indexPath.row];
+    FBRouteSectionModel *currentSection = [self.tableData.arrivalSections objectAtIndex:indexPath.section];
     FBRouteCellModel *cellVM = [currentSection.sectionCells objectAtIndex:indexPath.row];
     
     [cell setHighlighterText:cellVM.highlightText];
@@ -162,13 +172,13 @@ typedef NS_ENUM( NSInteger, FBSegmentType ) {
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     if(self.tableData.arrivalSections.count) {
+        //create header
         FBSectionHeaderView *headerView = [[FBSectionHeaderView alloc] init];
         FBRouteSectionModel *sectionData = [self.tableData.arrivalSections objectAtIndex:section];
         
-        //FIXME- SECTION TIME
+        //set data
         NSString *subtitle = [NSString stringWithFormat:@"%lu buses", (unsigned long)sectionData.sectionCells.count];
-        FBRouteCellModel *cellData = sectionData.sectionCells.firstObject;
-        [headerView setTitleText:cellData.accessoryText subtitleText:subtitle];
+        [headerView setTitleText:sectionData.sectionTitle subtitleText:subtitle];
         
         return headerView;
     }

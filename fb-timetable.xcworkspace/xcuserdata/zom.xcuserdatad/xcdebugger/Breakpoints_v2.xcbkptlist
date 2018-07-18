@@ -16,16 +16,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "fb-timetable/ViewModels/FBRouteTableModel.m"
-            timestampString = "553622733.9004641"
+            filePath = "fb-timetable/MainViewController.m"
+            timestampString = "553628811.9443049"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "27"
-            endingLineNumber = "27"
-            landmarkName = "-getSectionsArrayWithRouteStops:"
+            startingLineNumber = "165"
+            endingLineNumber = "165"
+            landmarkName = "-tableView:cellForRowAtIndexPath:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "fb-timetable/MainViewController.m"
+            timestampString = "553628811.944568"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "170"
+            endingLineNumber = "170"
+            landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -35,13 +51,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "fb-timetable/ViewModels/FBRouteTableModel.m"
-            timestampString = "553622733.9012049"
+            filePath = "fb-timetable/Helpers/FBCommonHelpers.m"
+            timestampString = "553628811.944631"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
-            landmarkName = "-getSectionsArrayWithRouteStops:"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
+            landmarkName = "+getDateStringWithTimestamp:timezone:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -51,13 +67,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "fb-timetable/ViewModels/FBRouteSectionModel.m"
-            timestampString = "553622733.901576"
+            filePath = "fb-timetable/Helpers/FBCommonHelpers.m"
+            timestampString = "553628811.945066"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "17"
-            endingLineNumber = "17"
-            landmarkName = "-initWithArray:"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "+getDateStringWithTimestamp:timezone:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
