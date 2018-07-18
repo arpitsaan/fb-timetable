@@ -22,18 +22,25 @@
 
 - (void)setRouteTimetable:(FBRouteTimetable *)timeTable {
     self.arrivalSections  = [self getSectionsArrayWithRouteStops:timeTable.arrivals];
+    self.departureSections  = [self getSectionsArrayWithRouteStops:timeTable.departures];
 }
 
+
+#pragma mark - Helpers
+/*
+ This method iterates over all the route stops and segments the array into multiple parts based on timestamp. Every route stop timing is compared with the previous one in the array and based on this comparison, it is grouped with the previous route stop.
+ */
 - (NSArray *)getSectionsArrayWithRouteStops:(NSArray <FBRouteStop *>*)routeStops {
     NSMutableArray *tempMainArray = [[NSMutableArray alloc] init];
+    NSCalendar *cal = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     
     NSDate *previousDate = nil;
     NSMutableArray *currentSectionArray = [[NSMutableArray alloc] init];
-    BOOL lastStopAdded = NO;
+    BOOL islastSectionAdded = NO;
     
     for (FBRouteStop *tempStop in routeStops) {
-//        NSLog(@"\n\n%@, %ld", tempStop.timeObj.timestamp, (long)count++);
-        //get stop from array
+        
+        //iterate over route stop
         NSDate *tempDate = [NSDate dateWithTimeIntervalSince1970:tempStop.timeObj.timestamp.integerValue];
         
         //compare with previous stop's date
@@ -41,45 +48,45 @@
             //first stop - add to array
             previousDate = tempDate;
             [currentSectionArray addObject:tempStop];
-//            NSLog(@"%@, %ld - prev nil", tempStop.timeObj.timestamp, (long)count);
-            lastStopAdded = NO;
+            islastSectionAdded = NO;
         } else {
-//            NSLog(@"%@, %ld - prev non nil", tempStop.timeObj.timestamp, (long)count);
             NSTimeZone *timezone = [NSTimeZone timeZoneWithName:tempStop.timeObj.timezone];
-            NSCalendar *cal = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
             [cal setTimeZone:timezone];
             
-            //compare with calendar
+            //compare with previous route stop date
             BOOL isSameDay = [cal isDate:tempDate inSameDayAsDate:previousDate];
 
             if (isSameDay) {
-//                NSLog(@"%@, %ld - same day", tempStop.timeObj.timestamp, (long)count);
                 //same date
                 [currentSectionArray addObject:tempStop];
-                lastStopAdded = NO;
+                islastSectionAdded = NO;
             }else {
-                //different date
-                FBRouteSectionModel *sectionDataObj = [[FBRouteSectionModel alloc] initWithArray:currentSectionArray];
-                sectionDataObj.sectionTitle = [FBCommonHelpers getDateStringWithTimestamp:tempStop.timeObj.timestamp timezone:tempStop.timeObj.timezone];
+                //date didn't match with current
+                [tempMainArray addObject:[self getSectionModelObjWithRoutesArray:currentSectionArray]];
                 
-//                NSLog(@"%@, %ld - different day - count %lu\n--------------------------\n", tempStop.timeObj.timestamp, (long)count,(unsigned long)currentSectionArray.count);
-                
-                [tempMainArray addObject:sectionDataObj];
+                //reset values
                 [currentSectionArray removeAllObjects];
                 previousDate = nil;
-                lastStopAdded = YES;
+                islastSectionAdded = YES;
             }
         }
     }
     
-    if (!lastStopAdded) {
-        FBRouteSectionModel *sectionDataObj = [[FBRouteSectionModel alloc] initWithArray:currentSectionArray];
-        FBRouteStop *stop = [currentSectionArray lastObject];
-        sectionDataObj.sectionTitle = [FBCommonHelpers getDateStringWithTimestamp:stop.timeObj.timestamp timezone:stop.timeObj.timezone];
-        [tempMainArray addObject:sectionDataObj];
+    //for the last section of dates
+    if (!islastSectionAdded) {
+        [tempMainArray addObject:[self getSectionModelObjWithRoutesArray:currentSectionArray]];
     }
     
     return tempMainArray;
 }
+
+- (FBRouteSectionModel *)getSectionModelObjWithRoutesArray:(NSArray <FBRouteStop *>*)array {
+    FBRouteSectionModel *sectionDataObj = [[FBRouteSectionModel alloc] initWithArray:array];
+    FBRouteStop *firstStop = [array firstObject];
+    sectionDataObj.sectionTitle = [FBCommonHelpers getDateStringWithTimestamp:firstStop.timeObj.timestamp timezone:firstStop.timeObj.timezone];
+    
+    return sectionDataObj;
+}
+
 
 @end

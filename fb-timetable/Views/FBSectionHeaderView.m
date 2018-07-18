@@ -52,11 +52,10 @@
 
 - (void)setupConstraints {
     //constants
-    //FIXME
     CGFloat padding = 15.0f;
     
     //title
-    [self.titleLabel setTopView:self constant:padding];
+    [self.titleLabel setTopView:self constant:0];
     [self.titleLabel setLeadingView:self constant:padding];
     
     //subtitle

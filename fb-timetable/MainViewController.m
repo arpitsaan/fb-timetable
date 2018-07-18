@@ -12,7 +12,7 @@
 #import "FBRouteStopTableViewCell.h"
 #import "FBSectionHeaderView.h"
 #import "FBRouteTableModel.h"
-#import "UIColor+Hex.h" //FIXME - Add in Constant of PCH file.
+#import "UIColor+Hex.h"
 
 typedef NS_ENUM( NSInteger, FBSegmentType ) {
     FBSegmentTypeArrivals = 0,
@@ -52,7 +52,6 @@ typedef NS_ENUM( NSInteger, FBSegmentType ) {
 
 - (void)getData {
     self.timetableAPIObj = [[FBRouteTimetable alloc] init];
-    //FIXME - City Id
     [self.timetableAPIObj getFBRouteTimetableForCityId:@(1) delegate:self];
 }
 
@@ -93,7 +92,6 @@ typedef NS_ENUM( NSInteger, FBSegmentType ) {
 
 - (void)createTableView {
     self.tableView = [[UITableView alloc] init];
-    //FIXME - replace all color with hex with self
     [self.tableView setBackgroundColor:[UIColor colorWithHex:0xF7F7F4]];
     [self.tableView setDataSource:self];
     [self.tableView setDelegate:self];
