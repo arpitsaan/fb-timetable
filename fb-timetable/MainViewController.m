@@ -9,6 +9,8 @@
 #import "MainViewController.h"
 #import "UIView+AutoLayout.h"
 #import "FBRouteTimetable.h"
+#import "FBRouteStopTableViewCell.h"
+#import "UIColor+Hex.h" //FIXME - Add in Constant of PCH file.
 
 @interface MainViewController() <FBRouteTimetableDelegate, UITableViewDataSource, UITableViewDelegate>
 
@@ -19,18 +21,34 @@
 
 @end
 
+typedef NS_ENUM( NSInteger, FBSegment ) {
+    FBSegmentArrivals = 0,
+    FBSegmentDepartures = 1
+};
+
 @implementation MainViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self setupDefaults];
     [self createViews];
     [self getData];
+}
+
+- (void)setupDefaults {
+    self.currentlyShowingData = [[NSArray alloc] init];
+    [self.view setBackgroundColor:UIColor.whiteColor];
+    
+    //navigation headr
+    self.navigationItem.title = @"Loading data...";
+    [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithHex:0x73D700]];
 }
 
 - (void)getData {
     self.timetableObj = [[FBRouteTimetable alloc] init];
     [self.timetableObj getFBRouteTimetable:self];
-    self.navigationItem.title = @"Loading data...";
+    
 }
 
 - (void)createViews {
@@ -41,19 +59,43 @@
 
 - (void)createSegmentedControl {
     self.segmentControl = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:@"Arrivals", @"Departure", nil]];
-    [self.segmentControl setBackgroundColor:UIColor.whiteColor];
+    UIFont *font = [UIFont systemFontOfSize:15 weight:UIFontWeightSemibold];
+    NSDictionary *attributes = [NSDictionary dictionaryWithObject:font
+                                                           forKey:NSFontAttributeName];
+    [self.segmentControl setTitleTextAttributes:attributes                                    forState:UIControlStateNormal];
 
+    [self.segmentControl setBackgroundColor:UIColor.whiteColor];
+    [self.segmentControl setSelectedSegmentIndex:FBSegmentArrivals];
+    [self.segmentControl addTarget:self action:@selector(didTapSegmentedControl:) forControlEvents:UIControlEventValueChanged];
     [self.view addSubview:self.segmentControl];
-    [self.segmentControl autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsMake(100, 0, 0, 0) excludingEdge:ALEdgeBottom];
+    [self.segmentControl setTintColor:[UIColor colorWithHex:0x73D700]];
+    
+    //set constraints
+    if (@available(iOS 11.0, *)) {
+        UILayoutGuide *safe = self.view.safeAreaLayoutGuide;
+        [NSLayoutConstraint activateConstraints:@[
+                                                  [self.segmentControl.topAnchor constraintEqualToAnchor:safe.topAnchor constant:15]
+                                                  ]];
+    } else {
+        [NSLayoutConstraint activateConstraints:@[
+                                                  [self.segmentControl.topAnchor constraintEqualToAnchor:self.topLayoutGuide.topAnchor constant:15]
+                                                  ]];
+    }
+    
+    [self.segmentControl setLeadingView:self.view constant:15];
+    [self.segmentControl setTrailingView:self.view constant:15];
 }
 
 - (void)createTableView {
     self.tableView = [[UITableView alloc] init];
-//    [self.tableView setDataSource:self];
-//    [self.tableView setDelegate:self];
+    [self.tableView setDataSource:self];
+    [self.tableView setDelegate:self];
     [self.view addSubview:self.tableView];
-    [self.tableView autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.segmentControl];
-    [self.tableView autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsZero excludingEdge:ALEdgeTop];
+
+    //set constraints
+    [self.tableView setBelowView:self.segmentControl constant:15];
+    [self.tableView setBottomView:self.view];
+    [self.tableView setSameLeadingTrailingView:self.view];
 }
 
 #pragma mark - FBRouteTimetableDelegate methods
@@ -66,21 +108,32 @@
     self.navigationItem.title = @"Data =";
 }
 
+#pragma mark - Segmented Control Interaction
+- (void)didTapSegmentedControl:(UISegmentedControl *)segmentedControl {
+    if(segmentedControl.selectedSegmentIndex == FBSegmentArrivals) {
+        self.currentlyShowingData = self.timetableObj.arrivals;
+        [self.tableView reloadData];
+    }
+    else {
+        self.currentlyShowingData = self.timetableObj.departures;
+        [self.tableView reloadData];
+    }
+}
+
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.timetableObj.arrivals.count;
+    return self.currentlyShowingData.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *reuseIdentifier = @"CellReuseIdentifier";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:reuseIdentifier];
-    }
-    FBRouteStop *routeStop = [self.timetableObj.arrivals objectAtIndex:indexPath.row];
-    [cell.textLabel setText:routeStop.direction];
-    [cell.detailTextLabel setText:routeStop.throughStations];
+    NSString *reuseIdentifier = @"RouteStopCellIdentifier";
     
+    FBRouteStopTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
+    if (!cell) {
+        cell = [[FBRouteStopTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:reuseIdentifier];
+    }
+    FBRouteStop *routeStop = [self.currentlyShowingData objectAtIndex:indexPath.row];
+    [cell setRouteStop:routeStop];
     return cell;
 }
 
