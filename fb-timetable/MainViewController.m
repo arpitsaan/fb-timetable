@@ -10,6 +10,7 @@
 #import "UIView+AutoLayout.h"
 #import "FBRouteTimetable.h"
 #import "FBRouteStopTableViewCell.h"
+#import "FBSectionHeaderView.h"
 #import "UIColor+Hex.h" //FIXME - Add in Constant of PCH file.
 
 @interface MainViewController() <FBRouteTimetableDelegate, UITableViewDataSource, UITableViewDelegate>
@@ -38,7 +39,7 @@ typedef NS_ENUM( NSInteger, FBSegment ) {
 
 - (void)setupDefaults {
     self.currentlyShowingData = [[NSArray alloc] init];
-    [self.view setBackgroundColor:UIColor.whiteColor];
+    [self.view setBackgroundColor:[UIColor colorWithHex:0xF7F7F4]];
     
     //navigation headr
     self.navigationItem.title = @"Loading data...";
@@ -47,8 +48,8 @@ typedef NS_ENUM( NSInteger, FBSegment ) {
 
 - (void)getData {
     self.timetableObj = [[FBRouteTimetable alloc] init];
-    [self.timetableObj getFBRouteTimetable:self];
-    
+    //FIXME - City Id
+    [self.timetableObj getFBRouteTimetableForCityId:@(1) delegate:self];
 }
 
 - (void)createViews {
@@ -88,6 +89,8 @@ typedef NS_ENUM( NSInteger, FBSegment ) {
 
 - (void)createTableView {
     self.tableView = [[UITableView alloc] init];
+    //FIXME - replace all color with hex with self
+    [self.tableView setBackgroundColor:[UIColor colorWithHex:0xF7F7F4]];
     [self.tableView setDataSource:self];
     [self.tableView setDelegate:self];
     [self.view addSubview:self.tableView];
@@ -135,6 +138,12 @@ typedef NS_ENUM( NSInteger, FBSegment ) {
     FBRouteStop *routeStop = [self.currentlyShowingData objectAtIndex:indexPath.row];
     [cell setRouteStop:routeStop];
     return cell;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    FBSectionHeaderView *headerView = [[FBSectionHeaderView alloc] init];
+    [headerView setTitleText:@"Today · 18 July 2018" subtitleText:@"7 buses departing"];
+    return headerView;
 }
 
 @end

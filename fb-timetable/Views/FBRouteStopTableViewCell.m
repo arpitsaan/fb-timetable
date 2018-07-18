@@ -32,22 +32,20 @@
 - (void)createViews {
     //line code label
     self.lineCodeLabel = [[UILabel alloc] init];
-    [self.lineCodeLabel setFont:[UIFont preferredFontForTextStyle:UIFontTextStyleFootnote]];
-//    [self.lineCodeLabel setBackgroundColor:[UIColor colorWithHex:0x73D700]];
-//    [self.lineCodeLabel setTextColor:[UIColor whiteColor]];
+    [self.lineCodeLabel setFont:[UIFont systemFontOfSize:14 weight:UIFontWeightBold]];
     [self.lineCodeLabel setTextColor:[UIColor colorWithHex:0x57A300]];
     [self.contentView addSubview:self.lineCodeLabel];
     
     //direction label
     self.directionLabel = [[UILabel alloc] init];
-    [self.directionLabel setFont: [UIFont preferredFontForTextStyle:UIFontTextStyleBody]];
+    [self.directionLabel setFont: [UIFont systemFontOfSize:18 weight:UIFontWeightSemibold]];
     [self.directionLabel setText:@"Station of the Bus"];
     [self.directionLabel setNumberOfLines:0];
     [self.contentView addSubview:self.directionLabel];
     
     //route details label
     self.routeDetailsLabel = [[UILabel alloc] init];
-    [self.routeDetailsLabel setFont:[UIFont preferredFontForTextStyle:UIFontTextStyleCaption1]];
+     [self.routeDetailsLabel setFont:[UIFont systemFontOfSize:13 weight:UIFontWeightRegular]];
     [self.routeDetailsLabel setTextColor:UIColor.grayColor];
     [self.routeDetailsLabel setNumberOfLines:0];
     [self.routeDetailsLabel setLineBreakMode:NSLineBreakByWordWrapping];
@@ -55,7 +53,7 @@
     
     //timing label
     self.timingLabel = [[UILabel alloc] init];
-    [self.timingLabel setFont:[UIFont preferredFontForTextStyle:UIFontTextStyleBody]];
+    [self.timingLabel setFont:[UIFont systemFontOfSize:18 weight:UIFontWeightSemibold]];
     [self.contentView addSubview:self.timingLabel];
 }
 
@@ -77,22 +75,26 @@
     //route details label
     [self.routeDetailsLabel setBelowView:self.directionLabel constant:2.0f];
     [self.routeDetailsLabel setSameLeadingTrailingView:self.directionLabel];
-    [self.routeDetailsLabel setBottomView:self.contentView];
+    [self.routeDetailsLabel setBottomView:self.contentView constant:padding];
     
     //timings label
     [self.timingLabel setCenterYView:self.contentView];
     [self.timingLabel setTrailingView:self.contentView constant:padding];
     [self.timingLabel setTextAlignment:NSTextAlignmentRight];
-    [self.timingLabel setViewWidth:60.0f];
+    [self.timingLabel setViewWidth:70.0f];
 }
 
 - (void)setRouteStop:(FBRouteStop *)routeStop {
     //FIXME - move to background thread during parsing
     NSDate *dateObj = [NSDate dateWithTimeIntervalSince1970:routeStop.timeObj.timestamp.integerValue];
-    NSDateFormatter *dateFormatter3 = [[NSDateFormatter alloc] init];
-    [dateFormatter3 setDateStyle:NSDateFormatterMediumStyle];
-    [dateFormatter3 setDateFormat:@"HH:mm"];
-    NSString *timingString = [dateFormatter3 stringFromDate:dateObj];
+    NSDateFormatter *timeFormatter = [[NSDateFormatter alloc] init];
+    [timeFormatter setDateStyle:NSDateFormatterMediumStyle];
+    [timeFormatter setDateFormat:@"HH:mm"];
+    
+    //timezone
+    NSTimeZone *tz = [[NSTimeZone alloc] initWithName:routeStop.timeObj.timezone];
+    [timeFormatter setTimeZone:tz];
+    NSString *timingString = [timeFormatter stringFromDate:dateObj];
     
     [self.lineCodeLabel setText:routeStop.lineCode];
     [self.directionLabel setText:routeStop.direction];

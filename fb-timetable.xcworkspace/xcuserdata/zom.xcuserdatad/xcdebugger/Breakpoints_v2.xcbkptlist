@@ -19,12 +19,76 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "fb-timetable/Models/FBRouteTimetable.m"
-            timestampString = "553586827.386829"
+            filePath = "fb-timetable/Views/FBRouteStopTableViewCell.m"
+            timestampString = "553614612.315213"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
+            landmarkName = "-setRouteStop:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "fb-timetable/Models/FBRouteStop.m"
+            timestampString = "553614612.3153009"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
+            landmarkName = "-parseObject:withInitialParams:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[FBRouteStop parseObject:withInitialParams:]"
+                  moduleName = "fb-timetable"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zom/Dropbox/interview-projects/fb-timetable/fb-timetable/Models/FBRouteStop.m"
+                  timestampString = "553613088.8084019"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "61"
+                  endingLineNumber = "61"
+                  offsetFromSymbolStart = "1620">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[FBRouteStop parseObject:withInitialParams:]"
+                  moduleName = "fb-timetable"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zom/Dropbox/interview-projects/fb-timetable/fb-timetable/Models/FBRouteStop.m"
+                  timestampString = "553613088.810169"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "61"
+                  endingLineNumber = "61"
+                  offsetFromSymbolStart = "1632">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "fb-timetable/Models/FBDateTime.m"
+            timestampString = "553614612.315361"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "14"
+            endingLineNumber = "14"
             landmarkName = "-parseObject:withInitialParams:"
             landmarkType = "7">
          </BreakpointContent>
@@ -36,12 +100,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "fb-timetable/Models/FBRouteTimetable.m"
-            timestampString = "553587304.759944"
+            timestampString = "553614612.315415"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
-            landmarkName = "-parseObject:withInitialParams:"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "+getAPIPathWithParams:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "fb-timetable/Models/FBRouteTimetable.m"
+            timestampString = "553614612.315466"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "+getAPIPathWithParams:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

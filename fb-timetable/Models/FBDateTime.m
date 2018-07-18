@@ -13,6 +13,7 @@
 - (void)parseObject:(NSDictionary *)responseObject withInitialParams:(NSDictionary *)params {
     self.timestamp = [self getNumberForKey:@"timestamp" fromDictionary:responseObject withInitialValue:self.timestamp];
     self.timezone = [self getStringForKey:@"tz" fromDictionary:responseObject withInitialValue:self.timezone];
+    NSLog(@"arpit - %@",self.timezone);
 }
 
 @end

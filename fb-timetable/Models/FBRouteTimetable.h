@@ -26,7 +26,7 @@
 @property(nonatomic, strong) NSString *status;
 @property(nonatomic, strong) NSString *message;
 
-- (void)getFBRouteTimetable:(id<FBRouteTimetableDelegate>)delegate;
+- (void)getFBRouteTimetableForCityId:(NSNumber *)cityId delegate:(id<FBRouteTimetableDelegate>)delegate;
 
 @end
 

@@ -10,4 +10,6 @@
 
 @interface FBSectionHeaderView : UIView
 
+- (void)setTitleText:(NSString *)titleText subtitleText:(NSString *)subtitle;
+
 @end

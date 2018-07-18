@@ -14,11 +14,27 @@
 
 @implementation FBRouteStop
 
-- (void)parseObject:(NSDictionary *)responseObject withInitialParams:(NSDictionary *)params {
+- (instancetype)init {
+    self = [super init];
+    if(self) {
+        self.direction = @"";
+        self.lineCode = @"";
+        self.lineDirection = @"";
+        self.rideId = @(0);
+        self.tripUid = @"";
+        self.throughStations = @"";
+        self.route = [[NSArray alloc] init];
+        self.timeObj = [[FBDateTime alloc] init];
+    }
+    return self;
+}
 
+
+- (void)parseObject:(NSDictionary *)responseObject withInitialParams:(NSDictionary *)params {
+    
     //trip uid
     self.tripUid = [self getStringForKey:@"trip_uid" fromDictionary:responseObject withInitialValue:self.tripUid];
-
+    
     //through the stations
     self.throughStations = [self getStringForKey:@"through_the_stations" fromDictionary:responseObject withInitialValue:self.throughStations];
     

@@ -12,23 +12,27 @@
 @interface FBRouteTimetable()
 @property (nonatomic, strong) NSMutableArray *tempArrivals;
 @property (nonatomic, strong) NSMutableArray *tempDepartures;
+@property (nonatomic, strong) NSNumber *cityId;
 
 @end
 
 @implementation FBRouteTimetable
 
-- (void)getFBRouteTimetable:(id<FBRouteTimetableDelegate>)delegate {
+- (void)getFBRouteTimetableForCityId:(NSNumber *)cityId delegate:(id<FBRouteTimetableDelegate>)delegate {
     self.delegate = delegate;
+    self.cityId = cityId;
     
-    [[FBApiManager sharedInstance] getRequestForClass:[self class] WithParameters:nil andRetryCount:3 withDelegate:self];
-}
-
-+ (NSString *)getAPIPath {
-    return @"/mobile/v1/network/station/1/timetable";
+    [[FBApiManager sharedInstance] getRequestForClass:[self class] WithParameters:[self getParamsDictionary] andRetryCount:3 withDelegate:self];
 }
 
 + (NSString *)getAPIPathWithParams:(NSDictionary *)params {
-    return [self getAPIPath];
+    NSString *cityId = @"0";
+    if ([params objectForKey:@"city_id"] != nil) {
+        cityId = [params objectForKey:@"city_id"];
+    }
+    NSString *pathString = @"/mobile/v1/network/station/%@/timetable";
+    NSString *pathWithParams = [NSString stringWithFormat:pathString, cityId];
+    return pathWithParams;
 }
 
 - (void)parseObject:(NSDictionary *)responseObject withInitialParams:(NSDictionary *)params {
@@ -75,6 +79,18 @@
     if ([self.delegate respondsToSelector:@selector(routeTimetableDownloadFailedWithError:)]) {
         [self.delegate routeTimetableDownloadFailedWithError:error];
     }
+    
+    if (DEBUG) {
+        NSLog(@"FBRouteTimetable [API ERROR] %@", error);
+    }
 }
+
+#pragma mark - Helpers
+- (NSDictionary *)getParamsDictionary {
+    NSMutableDictionary *paramsDict = [[NSMutableDictionary alloc] init];
+    [paramsDict setValue:self.cityId forKey:@"city_id"];
+    return paramsDict;
+}
+
 
 @end

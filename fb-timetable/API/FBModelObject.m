@@ -13,15 +13,15 @@
 - (void)parseObject:(NSDictionary *)responseObject withInitialParams:(NSDictionary *)params {    
 }
 
-+ (NSString *)getAPIPath{
++ (NSString *)getAPIPath {
     return nil;
 }
 
-+ (NSString *) getAPIPathWithParams:(NSDictionary *)params{
++ (NSString *)getAPIPathWithParams:(NSDictionary *)params {
     return nil;
 }
 
-+ (NSInteger) getRetryCount{
++ (NSInteger) getRetryCount {
     return 3;
 }
 
