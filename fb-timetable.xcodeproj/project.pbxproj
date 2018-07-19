@@ -28,6 +28,7 @@
 		E882B84B20FA99720067D9C0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E882B84A20FA99720067D9C0 /* main.m */; };
 		E882B85520FA99720067D9C0 /* fb_timetableTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E882B85420FA99720067D9C0 /* fb_timetableTests.m */; };
 		E882B86020FA99720067D9C0 /* fb_timetableUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E882B85F20FA99720067D9C0 /* fb_timetableUITests.m */; };
+		E8C968972100A24A00DADFC1 /* FBSplashView.m in Sources */ = {isa = PBXBuildFile; fileRef = E8C968962100A24A00DADFC1 /* FBSplashView.m */; };
 		E8EFB5E720FF802800131CB5 /* FBRouteCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E8EFB5E620FF802800131CB5 /* FBRouteCellModel.m */; };
 		E8EFB5EA20FF803700131CB5 /* FBRouteTableModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E8EFB5E920FF803700131CB5 /* FBRouteTableModel.m */; };
 		E8EFB5ED20FF80AC00131CB5 /* FBRouteSectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E8EFB5EC20FF80AC00131CB5 /* FBRouteSectionModel.m */; };
@@ -96,6 +97,8 @@
 		E882B85B20FA99720067D9C0 /* fb-timetableUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "fb-timetableUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E882B85F20FA99720067D9C0 /* fb_timetableUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = fb_timetableUITests.m; sourceTree = "<group>"; };
 		E882B86120FA99720067D9C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E8C968952100A24A00DADFC1 /* FBSplashView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FBSplashView.h; sourceTree = "<group>"; };
+		E8C968962100A24A00DADFC1 /* FBSplashView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FBSplashView.m; sourceTree = "<group>"; };
 		E8EFB5E520FF802800131CB5 /* FBRouteCellModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FBRouteCellModel.h; sourceTree = "<group>"; };
 		E8EFB5E620FF802800131CB5 /* FBRouteCellModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FBRouteCellModel.m; sourceTree = "<group>"; };
 		E8EFB5E820FF803700131CB5 /* FBRouteTableModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FBRouteTableModel.h; sourceTree = "<group>"; };
@@ -229,12 +232,12 @@
 			isa = PBXGroup;
 			children = (
 				E8EFB5F220FFCE8600131CB5 /* Core */,
-				E8EFB5EE20FF84AC00131CB5 /* Helpers */,
-				E8EFB5E420FF7EB500131CB5 /* ViewModels */,
 				E815254B20FF34F000DB4BF4 /* Views */,
 				E862D6D620FB6DCB00CEA180 /* Models */,
 				E862D6B320FB4E6E00CEA180 /* API */,
+				E8EFB5E420FF7EB500131CB5 /* ViewModels */,
 				E815253320FDF53A00DB4BF4 /* Categories */,
+				E8EFB5EE20FF84AC00131CB5 /* Helpers */,
 				E882B84920FA99720067D9C0 /* Info.plist */,
 			);
 			path = "fb-timetable";
@@ -256,6 +259,15 @@
 				E882B86120FA99720067D9C0 /* Info.plist */,
 			);
 			path = "fb-timetableUITests";
+			sourceTree = "<group>";
+		};
+		E8C968942100A22100DADFC1 /* Animated-Splash */ = {
+			isa = PBXGroup;
+			children = (
+				E8C968952100A24A00DADFC1 /* FBSplashView.h */,
+				E8C968962100A24A00DADFC1 /* FBSplashView.m */,
+			);
+			path = "Animated-Splash";
 			sourceTree = "<group>";
 		};
 		E8EFB5E420FF7EB500131CB5 /* ViewModels */ = {
@@ -283,6 +295,7 @@
 		E8EFB5F220FFCE8600131CB5 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				E8C968942100A22100DADFC1 /* Animated-Splash */,
 				E882B83B20FA99710067D9C0 /* AppDelegate.h */,
 				E882B83C20FA99710067D9C0 /* AppDelegate.m */,
 				E882B83E20FA99710067D9C0 /* MainViewController.h */,
@@ -464,6 +477,7 @@
 				E8EFB5E720FF802800131CB5 /* FBRouteCellModel.m in Sources */,
 				E815254E20FF353900DB4BF4 /* FBRouteStopTableViewCell.m in Sources */,
 				E862D6C720FB545600CEA180 /* FBModelObject.m in Sources */,
+				E8C968972100A24A00DADFC1 /* FBSplashView.m in Sources */,
 				E882B83D20FA99710067D9C0 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

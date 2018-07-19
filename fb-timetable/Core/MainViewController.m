@@ -23,7 +23,7 @@ typedef NS_ENUM( NSInteger, FBSegmentType ) {
 
 @property(nonatomic, strong) FBRouteTableModel *tableData;
 @property(nonatomic, strong) FBRouteTimetable *timetableAPIObj;
-@property(nonatomic, strong) NSArray *currentlyShowingData;
+@property(nonatomic, strong) NSArray *selectedSectionsArray;
 
 @property(nonatomic, strong) UITableView *tableView;
 @property(nonatomic, strong) UISegmentedControl *segmentControl;
@@ -44,7 +44,7 @@ typedef NS_ENUM( NSInteger, FBSegmentType ) {
 }
 
 - (void)setupDefaults {
-    self.currentlyShowingData = [[NSArray alloc] init];
+    self.selectedSectionsArray = [[NSArray alloc] init];
     self.tableData = [[FBRouteTableModel alloc] init];
     
     [self.view setBackgroundColor:[UIColor colorWithHex:0xF7F7F4]];
@@ -86,7 +86,7 @@ typedef NS_ENUM( NSInteger, FBSegmentType ) {
 - (void)createSegmentedControl {
     self.segmentControl = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:@"Arrivals", @"Departures", nil]];
     
-    //customize appearance
+    //customize segment control appearance
     UIFont *font = [UIFont systemFontOfSize:15 weight:UIFontWeightSemibold];
     NSDictionary *attributes = [NSDictionary dictionaryWithObject:font forKey:NSFontAttributeName];
     [self.segmentControl setTitleTextAttributes:attributes                                    forState:UIControlStateNormal];
@@ -118,7 +118,6 @@ typedef NS_ENUM( NSInteger, FBSegmentType ) {
     [self.tableView setBackgroundColor:[UIColor colorWithHex:0xF7F7F4]];
     [self.tableView setDataSource:self];
     [self.tableView setDelegate:self];
-    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     [self.tableView setAllowsSelection:NO];
     [self.view addSubview:self.tableView];
 
@@ -156,26 +155,39 @@ typedef NS_ENUM( NSInteger, FBSegmentType ) {
 - (void)routeTimetableDownloadedSuccessfully {
     dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^(void){
         
-        //create View Model in background thread
+        //process and create view model in background thread
         [self.tableData setRouteTimetable:self.timetableAPIObj];
         
         dispatch_async(dispatch_get_main_queue(), ^(void){
-            //Main Thread
-            [self.tableView reloadData];
-            [self.segmentControl setHidden:NO];
-            self.navigationItem.title = self.tableData.headerTitle;
-            [self.loader stopAnimating];
+            //reload all data on main Thread
+            [self refreshViewWithData];
         });
     });
 }
 
+- (void)refreshViewWithData {
+    self.selectedSectionsArray = self.tableData.arrivalSections;
+    
+    //update header
+    self.navigationItem.title = self.tableData.headerTitle;
+    [self.loader stopAnimating];
+    
+    //update view
+    [self.segmentControl setHidden:NO];
+    [self.tableView reloadData];
+    
+    //clean up api object
+    [self.timetableAPIObj cleanUpData];
+}
+
+
 #pragma mark - Segmented Control Interaction
 - (void)didToggleSegmentedControl:(UISegmentedControl *)segmentedControl {
     if(segmentedControl.selectedSegmentIndex == FBSegmentTypeArrivals) {
-        self.currentlyShowingData = self.timetableAPIObj.arrivals;
+        self.selectedSectionsArray = self.tableData.arrivalSections;
     }
     else {
-        self.currentlyShowingData = self.timetableAPIObj.departures;
+        self.selectedSectionsArray = self.tableData.departureSections;
     }
     
     [self.tableView setContentOffset:CGPointZero];
@@ -184,12 +196,12 @@ typedef NS_ENUM( NSInteger, FBSegmentType ) {
 
 #pragma mark - UITableViewDataSource Methods
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return self.tableData.arrivalSections.count;
+    return self.selectedSectionsArray.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (self.tableData.arrivalSections.count) {
-        FBRouteSectionModel *currentSection = [self.tableData.arrivalSections objectAtIndex:section];
+    if (self.selectedSectionsArray.count) {
+        FBRouteSectionModel *currentSection = [self.selectedSectionsArray objectAtIndex:section];
         return currentSection.sectionCells.count;
     }
     return 0;
@@ -203,9 +215,10 @@ typedef NS_ENUM( NSInteger, FBSegmentType ) {
         cell = [[FBRouteStopTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:reuseIdentifier];
     }
     
-    FBRouteSectionModel *currentSection = [self.tableData.arrivalSections objectAtIndex:indexPath.section];
+    FBRouteSectionModel *currentSection = [self.selectedSectionsArray objectAtIndex:indexPath.section];
     FBRouteCellModel *cellVM = [currentSection.sectionCells objectAtIndex:indexPath.row];
     
+    //input cell data with view model
     [cell setHighlighterText:cellVM.highlightText];
     [cell setTitleText:cellVM.titleText];
     [cell setSubtitleText:cellVM.subtitleText];
@@ -216,10 +229,10 @@ typedef NS_ENUM( NSInteger, FBSegmentType ) {
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    if(self.tableData.arrivalSections.count) {
+    if(self.selectedSectionsArray.count) {
         //create header
         FBSectionHeaderView *headerView = [[FBSectionHeaderView alloc] init];
-        FBRouteSectionModel *sectionData = [self.tableData.arrivalSections objectAtIndex:section];
+        FBRouteSectionModel *sectionData = [self.selectedSectionsArray objectAtIndex:section];
         
         //set data
         NSString *subtitle = [NSString stringWithFormat:@"%lu buses", (unsigned long)sectionData.sectionCells.count];

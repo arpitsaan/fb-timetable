@@ -13,7 +13,6 @@
 
 @property(nonatomic, strong) NSString *sectionTitle;
 @property(nonatomic, strong) NSString *sectionSubtitle;
-@property(nonatomic, strong) NSNumber *sectionScrollOffset;
 
 @property(nonatomic, strong) NSArray <FBRouteCellModel *> *sectionCells;
 

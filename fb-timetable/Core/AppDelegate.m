@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "MainViewController.h"
 #import "FBAPIInitializer.h"
+#import "FBSplashView.h"
 
 @interface AppDelegate ()
 
@@ -38,6 +39,8 @@
     self.window = [[UIWindow alloc] init];
     [self.window setRootViewController:navController];
     [self.window makeKeyAndVisible];
+    FBSplashView *view = [[FBSplashView alloc] init];
+    [view playAnimationOnWindow];
 }
 
 
