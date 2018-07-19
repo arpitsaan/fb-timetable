@@ -33,6 +33,7 @@ typedef NS_ENUM( NSInteger, FBSegmentType ) {
 
 @implementation MainViewController
 
+#pragma mark - Init Methods
 - (void)viewDidLoad {
     [super viewDidLoad];
     
