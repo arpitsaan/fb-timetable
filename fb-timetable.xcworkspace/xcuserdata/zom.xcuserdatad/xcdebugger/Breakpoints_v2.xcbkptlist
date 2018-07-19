@@ -2,4 +2,84 @@
 <Bucket
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "fb-timetableTests/fb_timetableTests.m"
+            timestampString = "553729482.733286"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "-testGetDateStringWithTimestampDoesNotPrefixTodayWhenTimestampIsZero"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[fb_timetableTests testGetDateStringWithTimestampDoesNotPrefixTodayWhenTimestampIsZero]"
+                  moduleName = "fb-timetableTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zom/Dropbox/interview-projects/fb-timetable/fb-timetableTests/fb_timetableTests.m"
+                  timestampString = "553728890.517718"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "56"
+                  endingLineNumber = "56"
+                  offsetFromSymbolStart = "148">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[fb_timetableTests testGetDateStringWithTimestampDoesNotPrefixTodayWhenTimestampIsZero]"
+                  moduleName = "fb-timetableTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zom/Dropbox/interview-projects/fb-timetable/fb-timetableTests/fb_timetableTests.m"
+                  timestampString = "553728890.520403"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "56"
+                  endingLineNumber = "56"
+                  offsetFromSymbolStart = "504">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[fb_timetableTests testGetDateStringWithTimestampDoesNotPrefixTodayWhenTimestampIsZero]"
+                  moduleName = "fb-timetableTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zom/Dropbox/interview-projects/fb-timetable/fb-timetableTests/fb_timetableTests.m"
+                  timestampString = "553728890.522458"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "56"
+                  endingLineNumber = "56"
+                  offsetFromSymbolStart = "560">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[fb_timetableTests testGetDateStringWithTimestampDoesNotPrefixTodayWhenTimestampIsZero]"
+                  moduleName = "fb-timetableTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zom/Dropbox/interview-projects/fb-timetable/fb-timetableTests/fb_timetableTests.m"
+                  timestampString = "553728890.524335"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "56"
+                  endingLineNumber = "56"
+                  offsetFromSymbolStart = "644">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

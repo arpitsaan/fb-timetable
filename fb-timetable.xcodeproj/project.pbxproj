@@ -27,8 +27,8 @@
 		E882B84820FA99720067D9C0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E882B84620FA99720067D9C0 /* LaunchScreen.storyboard */; };
 		E882B84B20FA99720067D9C0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E882B84A20FA99720067D9C0 /* main.m */; };
 		E882B85520FA99720067D9C0 /* fb_timetableTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E882B85420FA99720067D9C0 /* fb_timetableTests.m */; };
-		E882B86020FA99720067D9C0 /* fb_timetableUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E882B85F20FA99720067D9C0 /* fb_timetableUITests.m */; };
 		E8C968972100A24A00DADFC1 /* FBSplashView.m in Sources */ = {isa = PBXBuildFile; fileRef = E8C968962100A24A00DADFC1 /* FBSplashView.m */; };
+		E8C968A9210124D900DADFC1 /* FBCommonHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = E8EFB5F020FF84C300131CB5 /* FBCommonHelpers.m */; };
 		E8EFB5E720FF802800131CB5 /* FBRouteCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E8EFB5E620FF802800131CB5 /* FBRouteCellModel.m */; };
 		E8EFB5EA20FF803700131CB5 /* FBRouteTableModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E8EFB5E920FF803700131CB5 /* FBRouteTableModel.m */; };
 		E8EFB5ED20FF80AC00131CB5 /* FBRouteSectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E8EFB5EC20FF80AC00131CB5 /* FBRouteSectionModel.m */; };
@@ -37,13 +37,6 @@
 
 /* Begin PBXContainerItemProxy section */
 		E882B85120FA99720067D9C0 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E882B83020FA99710067D9C0 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = E882B83720FA99710067D9C0;
-			remoteInfo = "fb-timetable";
-		};
-		E882B85C20FA99720067D9C0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E882B83020FA99710067D9C0 /* Project object */;
 			proxyType = 1;
@@ -94,9 +87,6 @@
 		E882B85020FA99720067D9C0 /* fb-timetableTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "fb-timetableTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E882B85420FA99720067D9C0 /* fb_timetableTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = fb_timetableTests.m; sourceTree = "<group>"; };
 		E882B85620FA99720067D9C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E882B85B20FA99720067D9C0 /* fb-timetableUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "fb-timetableUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E882B85F20FA99720067D9C0 /* fb_timetableUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = fb_timetableUITests.m; sourceTree = "<group>"; };
-		E882B86120FA99720067D9C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E8C968952100A24A00DADFC1 /* FBSplashView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FBSplashView.h; sourceTree = "<group>"; };
 		E8C968962100A24A00DADFC1 /* FBSplashView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FBSplashView.m; sourceTree = "<group>"; };
 		E8EFB5E520FF802800131CB5 /* FBRouteCellModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FBRouteCellModel.h; sourceTree = "<group>"; };
@@ -119,13 +109,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		E882B84D20FA99720067D9C0 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E882B85820FA99720067D9C0 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -211,7 +194,6 @@
 			children = (
 				E882B83A20FA99710067D9C0 /* fb-timetable */,
 				E882B85320FA99720067D9C0 /* fb-timetableTests */,
-				E882B85E20FA99720067D9C0 /* fb-timetableUITests */,
 				E882B83920FA99710067D9C0 /* Products */,
 				471618C6EDBB64E48D64D7C2 /* Pods */,
 				72053A97C5EF7213FE10DE35 /* Frameworks */,
@@ -223,7 +205,6 @@
 			children = (
 				E882B83820FA99710067D9C0 /* fb-timetable.app */,
 				E882B85020FA99720067D9C0 /* fb-timetableTests.xctest */,
-				E882B85B20FA99720067D9C0 /* fb-timetableUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -250,15 +231,6 @@
 				E882B85620FA99720067D9C0 /* Info.plist */,
 			);
 			path = "fb-timetableTests";
-			sourceTree = "<group>";
-		};
-		E882B85E20FA99720067D9C0 /* fb-timetableUITests */ = {
-			isa = PBXGroup;
-			children = (
-				E882B85F20FA99720067D9C0 /* fb_timetableUITests.m */,
-				E882B86120FA99720067D9C0 /* Info.plist */,
-			);
-			path = "fb-timetableUITests";
 			sourceTree = "<group>";
 		};
 		E8C968942100A22100DADFC1 /* Animated-Splash */ = {
@@ -346,24 +318,6 @@
 			productReference = E882B85020FA99720067D9C0 /* fb-timetableTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		E882B85A20FA99720067D9C0 /* fb-timetableUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = E882B86A20FA99720067D9C0 /* Build configuration list for PBXNativeTarget "fb-timetableUITests" */;
-			buildPhases = (
-				E882B85720FA99720067D9C0 /* Sources */,
-				E882B85820FA99720067D9C0 /* Frameworks */,
-				E882B85920FA99720067D9C0 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				E882B85D20FA99720067D9C0 /* PBXTargetDependency */,
-			);
-			name = "fb-timetableUITests";
-			productName = "fb-timetableUITests";
-			productReference = E882B85B20FA99720067D9C0 /* fb-timetableUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -377,10 +331,6 @@
 						CreatedOnToolsVersion = 9.4;
 					};
 					E882B84F20FA99720067D9C0 = {
-						CreatedOnToolsVersion = 9.4;
-						TestTargetID = E882B83720FA99710067D9C0;
-					};
-					E882B85A20FA99720067D9C0 = {
 						CreatedOnToolsVersion = 9.4;
 						TestTargetID = E882B83720FA99710067D9C0;
 					};
@@ -401,7 +351,6 @@
 			targets = (
 				E882B83720FA99710067D9C0 /* fb-timetable */,
 				E882B84F20FA99720067D9C0 /* fb-timetableTests */,
-				E882B85A20FA99720067D9C0 /* fb-timetableUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -417,13 +366,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		E882B84E20FA99720067D9C0 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E882B85920FA99720067D9C0 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -486,15 +428,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E8C968A9210124D900DADFC1 /* FBCommonHelpers.m in Sources */,
 				E882B85520FA99720067D9C0 /* fb_timetableTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E882B85720FA99720067D9C0 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E882B86020FA99720067D9C0 /* fb_timetableUITests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -505,11 +440,6 @@
 			isa = PBXTargetDependency;
 			target = E882B83720FA99710067D9C0 /* fb-timetable */;
 			targetProxy = E882B85120FA99720067D9C0 /* PBXContainerItemProxy */;
-		};
-		E882B85D20FA99720067D9C0 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = E882B83720FA99710067D9C0 /* fb-timetable */;
-			targetProxy = E882B85C20FA99720067D9C0 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -711,42 +641,6 @@
 			};
 			name = Release;
 		};
-		E882B86B20FA99720067D9C0 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = L2VF9Y9HZL;
-				INFOPLIST_FILE = "fb-timetableUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.acyooman.fb-timetableUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "fb-timetable";
-			};
-			name = Debug;
-		};
-		E882B86C20FA99720067D9C0 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = L2VF9Y9HZL;
-				INFOPLIST_FILE = "fb-timetableUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.acyooman.fb-timetableUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "fb-timetable";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -773,15 +667,6 @@
 			buildConfigurations = (
 				E882B86820FA99720067D9C0 /* Debug */,
 				E882B86920FA99720067D9C0 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		E882B86A20FA99720067D9C0 /* Build configuration list for PBXNativeTarget "fb-timetableUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				E882B86B20FA99720067D9C0 /* Debug */,
-				E882B86C20FA99720067D9C0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
