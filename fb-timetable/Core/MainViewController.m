@@ -121,7 +121,7 @@ typedef NS_ENUM( NSInteger, FBSegmentType ) {
     [self.view addSubview:self.tableView];
 
     //set constraints
-    [self.tableView setBelowView:self.segmentControl constant:15];
+    [self.tableView setBelowView:self.segmentControl constant:2.0f];
     [self.tableView setBottomView:self.view];
     [self.tableView setSameLeadingTrailingView:self.view];
 }
