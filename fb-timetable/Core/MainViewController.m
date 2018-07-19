@@ -48,7 +48,6 @@ typedef NS_ENUM( NSInteger, FBSegmentType ) {
     self.tableData = [[FBRouteTableModel alloc] init];
     
     [self.view setBackgroundColor:[UIColor colorWithHex:0xF7F7F4]];
-    
 }
 
 - (void)getData {

@@ -56,7 +56,7 @@
 - (void)playAnimationOnWindow {
     [[[UIApplication sharedApplication] keyWindow] addSubview:self];
     
-    CGFloat kTransform = self.frame.size.width;
+    CGFloat kTransform = self.frame.size.width*2;
     
     //go apart
     [self.topArrowView setAlpha:1.0f];
@@ -68,7 +68,7 @@
     CGFloat delay = 0;
     
     //come together
-    [UIView animateWithDuration:1.5f delay:delay usingSpringWithDamping:1.0f initialSpringVelocity:0.1f options:UIViewAnimationOptionCurveEaseInOut animations:^{
+    [UIView animateWithDuration:1.2f delay:delay usingSpringWithDamping:1.0f initialSpringVelocity:0.1f options:UIViewAnimationOptionCurveEaseInOut animations:^{
         
         [self.topArrowView setTransform:CGAffineTransformMakeTranslation(0, 0.0f)];
         [self.bottomArrowView setTransform:CGAffineTransformMakeTranslation(0, 0.0f)];
@@ -79,20 +79,20 @@
     delay += 1.0f;
     
     //slow move
-    [UIView animateWithDuration:3.4f delay:delay usingSpringWithDamping:1.0f initialSpringVelocity:0.0f options:UIViewAnimationOptionCurveLinear|UIViewAnimationOptionAllowAnimatedContent animations:^{
+    [UIView animateWithDuration:3.0f delay:delay usingSpringWithDamping:1.0f initialSpringVelocity:0.0f options:UIViewAnimationOptionCurveLinear|UIViewAnimationOptionAllowAnimatedContent animations:^{
         [self.topArrowView setTransform:CGAffineTransformMakeTranslation(30, 0.0f)];
         [self.bottomArrowView setTransform:CGAffineTransformMakeTranslation(-30, 0.0f)];
     } completion:^(BOOL finished) {
 
     }];
     
-    delay += 2.7f;
+    delay += 2.2f;
     
     //arrows exit
     [UIView animateWithDuration:1.0f delay:delay usingSpringWithDamping:1.0f initialSpringVelocity:0.1f options:UIViewAnimationOptionCurveEaseInOut|UIViewAnimationOptionAllowAnimatedContent animations:^{
         
-        [self.topArrowView setTransform:CGAffineTransformMakeTranslation(kTransform*2, 0.0f)];
-        [self.bottomArrowView setTransform:CGAffineTransformMakeTranslation(-kTransform*2, 0.0f)];
+        [self.topArrowView setTransform:CGAffineTransformMakeTranslation(kTransform, 0.0f)];
+        [self.bottomArrowView setTransform:CGAffineTransformMakeTranslation(-kTransform, 0.0f)];
         [self.topArrowView setAlpha:0.0f];
         [self.bottomArrowView setAlpha:0.0f];
         [self.backgroundView setAlpha:0.0];
