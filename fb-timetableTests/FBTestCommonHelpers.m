@@ -1,6 +1,6 @@
 //
-//  fb_timetableTests.m
-//  fb-timetableTests
+//  FBTestCommonHelpers.m
+//  FBTestCommonHelpers
 //
 //  Created by Arpit Agarwal on 15/07/18.
 //  Copyright © 2018 acyooman. All rights reserved.
@@ -9,19 +9,11 @@
 #import <XCTest/XCTest.h>
 #import "FBCommonHelpers.h"
 
-@interface fb_timetableTests : XCTestCase
+@interface FBTestCommonHelpers : XCTestCase
 
 @end
 
-@implementation fb_timetableTests
-
-- (void)setUp {
-    [super setUp];
-}
-
-- (void)tearDown {
-    [super tearDown];
-}
+@implementation FBTestCommonHelpers
 
 - (void)testGet24HourStringWithTimestampReturnsCorrectDisplayTimeString {
     //    1532032800, GMT+02:00 -> 22:40
@@ -89,26 +81,4 @@
 }
 
 @end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

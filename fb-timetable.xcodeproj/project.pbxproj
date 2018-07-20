@@ -26,9 +26,10 @@
 		E882B84520FA99720067D9C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E882B84420FA99720067D9C0 /* Assets.xcassets */; };
 		E882B84820FA99720067D9C0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E882B84620FA99720067D9C0 /* LaunchScreen.storyboard */; };
 		E882B84B20FA99720067D9C0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E882B84A20FA99720067D9C0 /* main.m */; };
-		E882B85520FA99720067D9C0 /* fb_timetableTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E882B85420FA99720067D9C0 /* fb_timetableTests.m */; };
+		E882B85520FA99720067D9C0 /* FBTestCommonHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = E882B85420FA99720067D9C0 /* FBTestCommonHelpers.m */; };
 		E8C968972100A24A00DADFC1 /* FBSplashView.m in Sources */ = {isa = PBXBuildFile; fileRef = E8C968962100A24A00DADFC1 /* FBSplashView.m */; };
 		E8C968A9210124D900DADFC1 /* FBCommonHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = E8EFB5F020FF84C300131CB5 /* FBCommonHelpers.m */; };
+		E8C968BE2101A9CD00DADFC1 /* FBTestModels.m in Sources */ = {isa = PBXBuildFile; fileRef = E8C968BD2101A9CD00DADFC1 /* FBTestModels.m */; };
 		E8EFB5E720FF802800131CB5 /* FBRouteCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E8EFB5E620FF802800131CB5 /* FBRouteCellModel.m */; };
 		E8EFB5EA20FF803700131CB5 /* FBRouteTableModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E8EFB5E920FF803700131CB5 /* FBRouteTableModel.m */; };
 		E8EFB5ED20FF80AC00131CB5 /* FBRouteSectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E8EFB5EC20FF80AC00131CB5 /* FBRouteSectionModel.m */; };
@@ -85,10 +86,11 @@
 		E882B84920FA99720067D9C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E882B84A20FA99720067D9C0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E882B85020FA99720067D9C0 /* fb-timetableTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "fb-timetableTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E882B85420FA99720067D9C0 /* fb_timetableTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = fb_timetableTests.m; sourceTree = "<group>"; };
+		E882B85420FA99720067D9C0 /* FBTestCommonHelpers.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FBTestCommonHelpers.m; sourceTree = "<group>"; };
 		E882B85620FA99720067D9C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E8C968952100A24A00DADFC1 /* FBSplashView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FBSplashView.h; sourceTree = "<group>"; };
 		E8C968962100A24A00DADFC1 /* FBSplashView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FBSplashView.m; sourceTree = "<group>"; };
+		E8C968BD2101A9CD00DADFC1 /* FBTestModels.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FBTestModels.m; sourceTree = "<group>"; };
 		E8EFB5E520FF802800131CB5 /* FBRouteCellModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FBRouteCellModel.h; sourceTree = "<group>"; };
 		E8EFB5E620FF802800131CB5 /* FBRouteCellModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FBRouteCellModel.m; sourceTree = "<group>"; };
 		E8EFB5E820FF803700131CB5 /* FBRouteTableModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FBRouteTableModel.h; sourceTree = "<group>"; };
@@ -227,7 +229,8 @@
 		E882B85320FA99720067D9C0 /* fb-timetableTests */ = {
 			isa = PBXGroup;
 			children = (
-				E882B85420FA99720067D9C0 /* fb_timetableTests.m */,
+				E882B85420FA99720067D9C0 /* FBTestCommonHelpers.m */,
+				E8C968BD2101A9CD00DADFC1 /* FBTestModels.m */,
 				E882B85620FA99720067D9C0 /* Info.plist */,
 			);
 			path = "fb-timetableTests";
@@ -429,7 +432,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E8C968A9210124D900DADFC1 /* FBCommonHelpers.m in Sources */,
-				E882B85520FA99720067D9C0 /* fb_timetableTests.m in Sources */,
+				E8C968BE2101A9CD00DADFC1 /* FBTestModels.m in Sources */,
+				E882B85520FA99720067D9C0 /* FBTestCommonHelpers.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
